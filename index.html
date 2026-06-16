@@ -10,10 +10,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.morganrichardsgaragecharlton.co.uk/">
 <title>Morgan Richards Garage Ltd | MOT, Servicing &amp; EV Specialists | Charlton SE7</title>
-  <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high" type="image/webp">
   <meta name="theme-color" content="#16181b">
+  <!-- Fonts: non-render-blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Instrument+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Instrument+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Instrument+Sans:wght@300;400;500&display=swap"></noscript>
 <style>
 :root {
   --graphite: #16181b;
@@ -180,6 +184,7 @@ header.scrolled {
   position: absolute;
   inset: 0;
   background-image: url('images/hero.jpg');
+  background-image: image-set(url('images/hero.webp') type('image/webp'), url('images/hero.jpg') type('image/jpeg'));
   background-size: cover;
   background-position: center 30%;
   transform: scale(1.04);
@@ -875,18 +880,32 @@ footer {
 
 @media (max-width: 680px) {
   .hamburger { display: flex; }
+
+  /* Nav: hide phone (it's in the sticky bar), tighten brand */
+  .nav-phone { display: none; }
+  .nav-cta-link { padding: 0.38rem 0.85rem; font-size: 0.75rem; }
+  .nav-brand { font-size: 0.78rem; }
+  .nav-brand span { display: none; }
+
+  /* Hero */
   .hero { align-items: flex-end; justify-content: flex-start; }
   .hero-inner { justify-content: flex-start; }
-  .hero-panel { padding: 1.8rem; max-width: 100%; }
-  .hero-panel h1 { font-size: 1.8rem; }
+  .hero-panel { padding: 1.5rem; max-width: 100%; }
+  .hero-panel h1 { font-size: 1.65rem; }
   .btn-ghost { display: none; }
+
+  /* Trust strip: 2×2, compact */
+  .trust-strip { grid-template-columns: 1fr 1fr !important; }
+  .trust-stat { padding: 0.75rem 0.5rem; }
+  .trust-stat-num { font-size: 1.55rem; }
+  .trust-stat-label { font-size: 0.58rem; letter-spacing: 0.08em; }
+
+  /* Rest */
   .services-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
   .gallery-item { height: 240px; }
   .sticky-call { flex-direction: column; gap: 0.6rem; padding: 1rem 5%; }
   .footer-bottom { flex-direction: column; gap: 0.4rem; }
-  .trust-strip { grid-template-columns: 1fr 1fr; gap: 1px; }
-
 }
 
 /* ── TRUST STRIP ── */
@@ -907,7 +926,7 @@ footer {
 }
 .trust-stat {
   background: var(--graphite);
-  padding: 1.6rem 1.8rem;
+  padding: 1.1rem 1.2rem;
   text-align: center;
 }
 .trust-stat-num {
@@ -1038,25 +1057,25 @@ footer {
   <div class="trust-strip">
     <div class="trust-stat">
       <div class="trust-stat-num">4.8</div>
-      <div class="trust-stat-label">Google · 193 reviews</div>
+      <div class="trust-stat-label">Google (193)</div>
     </div>
     <div class="trust-stat">
       <div class="trust-stat-num">4.9</div>
-      <div class="trust-stat-label">Yell rating</div>
+      <div class="trust-stat-label">Yell</div>
     </div>
     <div class="trust-stat">
       <div class="trust-stat-num">1,500+</div>
       <div class="trust-stat-label">Regit reviews</div>
     </div>
     <div class="trust-stat">
-      <div class="trust-stat-num">30</div>
-      <div class="trust-stat-label">Years serving SE London</div>
+      <div class="trust-stat-num">30 yrs</div>
+      <div class="trust-stat-label">SE London</div>
     </div>
   </div>
 </div>
 
 <!-- HERO -->
-<section class="hero" style="height:calc(100vh - 68px);min-height:580px;">
+<section class="hero" style="height:70vh;min-height:500px;">
   <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
@@ -1214,12 +1233,37 @@ footer {
     <div class="about-prose">
       <div class="section-eyebrow">About us</div>
       <h2>An honest garage run by the same family for thirty years</h2>
-      <p>Morgan Richards Garage was founded in 1994 in Woolwich and has been based at Anchor &amp; Hope Lane in Charlton for the past fifteen years. <strong>In 2024, we marked thirty years in business</strong> — three decades of the same team, the same standards, and the same commitment to SE London drivers. Richard and his team have built the business on a straightforward principle: do the work properly, explain it clearly, and only charge for what the car actually needs.</p>
-      <p>We are <strong>AutoCare registered</strong> and carry <strong>RMI membership</strong>, meaning every job comes with manufacturer-backed part guarantees and an independent standard of service. We have invested in <strong>IMI certification and Nexdrive approval</strong> for electric and hybrid vehicles, because that is where SE London's fleet is heading and we intend to be ready for it.</p>
-      <p>We respond to every Google review ourselves. If something went wrong, Richard wants to know about it. If something went well, he wants to say thank you. That is not a marketing strategy — it is just how a local business should operate.</p>
-      <div style="margin-top:2rem;padding:1.5rem 1.8rem;background:var(--paper);border-left:3px solid var(--steel);">
-        <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel);margin-bottom:0.9rem;">What to expect</div>
-        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.75;font-weight:300;margin:0;">We call you before starting any work beyond what was agreed. You see the old worn parts before we charge for replacements — no trust required, just transparency. All calls with the garage are recorded for quality and compliance. You pay when the work is done.</p>
+      <p style="font-size:0.97rem;color:var(--text-muted);line-height:1.75;font-weight:300;margin-bottom:1.8rem;">Founded in Woolwich in 1994, based in Charlton SE7 for fifteen years. Richard and the team do the job properly, explain it clearly, and only charge for what the car actually needs. Every Google review answered personally.</p>
+
+      <!-- Credential badges -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.8rem;">
+        <div style="padding:0.85rem 1rem;border:1px solid var(--hairline);background:var(--paper);">
+          <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);margin-bottom:0.2rem;">AutoCare</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:300;">Registered member</div>
+        </div>
+        <div style="padding:0.85rem 1rem;border:1px solid var(--hairline);background:var(--paper);">
+          <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);margin-bottom:0.2rem;">RMI</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:300;">Part guarantees</div>
+        </div>
+        <div style="padding:0.85rem 1rem;border:1px solid var(--hairline);background:var(--paper);">
+          <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);margin-bottom:0.2rem;">IMI Certified</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:300;">EV &amp; hybrid</div>
+        </div>
+        <div style="padding:0.85rem 1rem;border:1px solid var(--hairline);background:var(--paper);">
+          <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);margin-bottom:0.2rem;">Nexdrive</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:300;">Approved centre</div>
+        </div>
+      </div>
+
+      <!-- What to expect -->
+      <div style="padding:1.2rem 1.4rem;background:var(--graphite);border-left:3px solid var(--steel);">
+        <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--chrome);margin-bottom:0.75rem;">What to expect</div>
+        <div style="display:flex;flex-direction:column;gap:0.55rem;">
+          <div style="font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;">✓&nbsp; We call before starting any extra work</div>
+          <div style="font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;">✓&nbsp; You see worn parts before we charge</div>
+          <div style="font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;">✓&nbsp; Calls recorded for quality &amp; compliance</div>
+          <div style="font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;">✓&nbsp; You pay only when the job is done</div>
+        </div>
       </div>
     </div>
     <div class="about-sidebar">
