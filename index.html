@@ -165,6 +165,7 @@ header.scrolled {
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
   padding-bottom: 8vh;
 }
 
@@ -183,12 +184,9 @@ header.scrolled {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(14,16,18,0.55) 0%,
-    rgba(14,16,18,0.3) 40%,
-    rgba(14,16,18,0.72) 100%
-  );
+  background:
+    linear-gradient(to bottom, rgba(14,16,18,0.55) 0%, rgba(14,16,18,0.15) 50%, rgba(14,16,18,0.6) 100%),
+    linear-gradient(to left, rgba(14,16,18,0.65) 0%, rgba(14,16,18,0.1) 55%, transparent 100%);
 }
 
 .hero-inner {
@@ -198,6 +196,9 @@ header.scrolled {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 5%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .hero-panel {
@@ -867,7 +868,9 @@ footer {
 
 @media (max-width: 680px) {
   .hamburger { display: flex; }
-  .hero-panel { padding: 1.8rem; }
+  .hero { align-items: flex-end; justify-content: flex-start; }
+  .hero-inner { justify-content: flex-start; }
+  .hero-panel { padding: 1.8rem; max-width: 100%; }
   .hero-panel h1 { font-size: 1.8rem; }
   .btn-ghost { display: none; }
   .services-grid { grid-template-columns: 1fr; }
@@ -877,6 +880,83 @@ footer {
   .footer-bottom { flex-direction: column; gap: 0.4rem; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Morgan Richards Garage Ltd",
+  "image": "https://www.morganrichardsgaragecharlton.co.uk/",
+  "@id": "https://www.morganrichardsgaragecharlton.co.uk/",
+  "url": "https://www.morganrichardsgaragecharlton.co.uk/",
+  "telephone": "02088542550",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Unit 12 Anchorage Point, Anchor and Hope Lane",
+    "addressLocality": "Charlton",
+    "addressRegion": "London",
+    "postalCode": "SE7 7SQ",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.4929,
+    "longitude": 0.0316
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "193",
+    "bestRating": "5"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Garage Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "MOT Testing"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Car Servicing"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diagnostics"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tyre Fitting"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brake Repairs"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Air Conditioning Service"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Electric Vehicle Servicing"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Hybrid Vehicle Servicing"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exhaust Repair"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Suspension Repair"}}
+    ]
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Charlton"},
+    {"@type": "City", "name": "Greenwich"},
+    {"@type": "City", "name": "Woolwich"},
+    {"@type": "City", "name": "Bexley"},
+    {"@type": "City", "name": "Eltham"},
+    {"@type": "City", "name": "Sidcup"},
+    {"@type": "City", "name": "Lewisham"},
+    {"@type": "City", "name": "Thamesmead"},
+    {"@type": "City", "name": "Erith"},
+    {"@type": "City", "name": "Plumstead"}
+  ],
+  "description": "Family-run garage in Charlton SE7 serving SE London since 1994. AutoCare registered, IMI certified for electric and hybrid vehicles. MOT testing, servicing, diagnostics, tyres, brakes and air conditioning. 4.8 stars across 193 Google reviews.",
+  "sameAs": [
+    "https://www.approvedgarages.co.uk/Garage/Morgan-Richards-Garage-Ltd/"
+  ]
+}
+</script>
 </head>
 <body>
 
