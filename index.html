@@ -25,9 +25,9 @@
   --graphite-light: #2a2d34;
   --steel: #27506f;
   --steel-light: #3a6d96;
-  --paper: #f5f4f1;
-  --paper-dark: #eceae5;
-  --chrome: #9a9ea6;
+  --paper: #fbfbfa;
+  --paper-dark: #f0efed;
+  --chrome: #8d939b;
   --hairline: rgba(0,0,0,.09);
   --hairline-light: rgba(255,255,255,.08);
   --text: #1c1e22;
@@ -50,8 +50,8 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: 'Archivo', sans-serif;
   font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 /* ── NAV ── */
@@ -69,60 +69,60 @@ header {
 }
 
 header.scrolled {
-  background: rgba(14,16,18,.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(22,24,27,0.97);
   border-bottom-color: var(--hairline-light);
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
+.nav-logo {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
 }
+
+.nav-logo span {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.18s;
+}
+
+.nav-links a:hover { color: var(--white); }
 
 .nav-phone {
-  color: var(--white);
+  color: rgba(255,255,255,0.65);
   text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  opacity: 0.85;
-  transition: opacity 0.2s;
-}
-
-.nav-phone:hover { opacity: 1; }
-
-.nav-cta-link {
-  background: var(--steel);
-  color: var(--white);
-  text-decoration: none;
-  padding: 0.42rem 1.1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  transition: background 0.2s;
-}
-
-.nav-cta-link:hover { background: var(--steel-light); }
-
-.nav-brand {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 600;
-  font-size: 0.92rem;
-  color: var(--white);
-  letter-spacing: 0.01em;
-  text-align: right;
-  line-height: 1.2;
-}
-
-.nav-brand span {
-  display: block;
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   font-weight: 400;
-  color: var(--chrome);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
+  transition: color 0.18s;
+  white-space: nowrap;
 }
+
+.nav-phone:hover { color: var(--white); }
 
 /* Mobile nav */
 .hamburger {
@@ -171,13 +171,13 @@ header.scrolled {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 640px;
+  height: 90vh;
+  min-height: 600px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
-  padding-bottom: 8vh;
+  justify-content: flex-start;
+  padding-bottom: 9vh;
 }
 
 .hero-bg {
@@ -187,18 +187,12 @@ header.scrolled {
   background-image: image-set(url('images/hero.webp') type('image/webp'), url('images/hero.jpg') type('image/jpeg'));
   background-size: cover;
   background-position: center 30%;
-  transform: scale(1.04);
-  transition: transform 8s ease;
 }
-
-.hero-bg.loaded { transform: scale(1); }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(14,16,18,0.55) 0%, rgba(14,16,18,0.15) 50%, rgba(14,16,18,0.6) 100%),
-    linear-gradient(to left, rgba(14,16,18,0.65) 0%, rgba(14,16,18,0.1) 55%, transparent 100%);
+  background: linear-gradient(to right, rgba(22,24,27,0.88) 0%, rgba(22,24,27,0.5) 45%, transparent 100%);
 }
 
 .hero-inner {
@@ -209,34 +203,29 @@ header.scrolled {
   margin: 0 auto;
   padding: 0 5%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: flex-end;
 }
 
 .hero-panel {
-  background: rgba(14,16,18,.76);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  border-left: 3px solid var(--steel);
-  padding: 2.4rem 2.8rem;
-  max-width: 560px;
+  max-width: 580px;
 }
 
 .hero-panel h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
   color: var(--white);
-  font-weight: 600;
-  margin-bottom: 0.85rem;
-  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.05;
 }
 
 .hero-panel p {
   font-size: 1rem;
-  color: rgba(255,255,255,0.68);
+  color: rgba(255,255,255,0.62);
   line-height: 1.65;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
   font-weight: 300;
-  max-width: 440px;
+  max-width: 460px;
 }
 
 .btn-primary {
@@ -246,16 +235,41 @@ header.scrolled {
   text-decoration: none;
   padding: 0.82rem 1.8rem;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: background 0.18s;
 }
 
-.btn-primary:hover {
-  background: var(--steel-light);
-  transform: translateY(-1px);
+.btn-primary:hover { background: var(--steel-light); }
+
+/* Hero variant: white button on dark image */
+.btn-hero {
+  background: var(--white);
+  color: var(--graphite);
 }
+
+.btn-hero:hover { background: var(--paper-dark); }
+
+.btn-text {
+  display: inline-block;
+  color: rgba(255,255,255,0.65);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  border: none;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  transition: color 0.18s;
+  padding: 0;
+}
+
+.btn-text:hover { color: var(--white); }
 
 .btn-ghost {
   display: inline-block;
@@ -263,9 +277,12 @@ header.scrolled {
   color: rgba(255,255,255,0.8);
   text-decoration: none;
   padding: 0.8rem 1.8rem;
-  font-size: 0.9rem;
-  font-weight: 400;
-  transition: border-color 0.2s, color 0.2s;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: border-color 0.18s, color 0.18s;
   margin-left: 0.75rem;
 }
 
@@ -275,7 +292,7 @@ header.scrolled {
 .highlights {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 110px 5%;
+  padding: 128px 5%;
 }
 
 .highlights-grid {
@@ -345,7 +362,7 @@ header.scrolled {
 /* ── SERVICES ── */
 .services {
   background: var(--paper);
-  padding: 110px 5%;
+  padding: 128px 5%;
 }
 
 .services-inner {
@@ -363,8 +380,8 @@ header.scrolled {
 }
 
 .section-heading {
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
-  font-weight: 600;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
   color: var(--text);
   margin-bottom: 0.75rem;
 }
@@ -392,17 +409,16 @@ header.scrolled {
   border-bottom: 1px solid var(--hairline);
   background: var(--white);
   position: relative;
-  transition: background 0.2s;
+  border-left: 2px solid transparent;
+  transition: background 0.18s, border-left-color 0.18s;
 }
 
-.service-card:hover { background: var(--paper); }
-
-.service-bar {
-  width: 28px;
-  height: 2px;
-  background: var(--steel);
-  margin-bottom: 1.4rem;
+.service-card:hover {
+  background: var(--paper-dark);
+  border-left-color: var(--steel);
 }
+
+.service-bar { display: none; }
 
 .service-card h3 {
   font-size: 1rem;
@@ -491,7 +507,7 @@ header.scrolled {
 /* ── REVIEWS ── */
 .reviews {
   background: var(--graphite);
-  padding: 110px 5%;
+  padding: 128px 5%;
 }
 
 .reviews-inner {
@@ -564,7 +580,8 @@ header.scrolled {
   border-left: 3px solid var(--steel);
 }
 
-.review-stars { color: #d4a843; font-size: 0.78rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+.review-stars { display: none; }
+.rating-stars { display: none; }
 
 .review-text {
   font-size: 0.88rem;
@@ -590,7 +607,7 @@ header.scrolled {
 
 /* ── ABOUT ── */
 .about {
-  padding: 110px 5%;
+  padding: 128px 5%;
   background: var(--white);
 }
 
@@ -678,7 +695,7 @@ header.scrolled {
 /* ── ENQUIRY FORM ── */
 .enquiry {
   background: var(--paper);
-  padding: 110px 5%;
+  padding: 128px 5%;
 }
 
 .enquiry-inner {
@@ -756,12 +773,14 @@ textarea { resize: vertical; min-height: 120px; }
   color: var(--white);
   padding: 0.9rem 2.2rem;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   font-weight: 500;
   border: none;
+  border-radius: 0;
   cursor: pointer;
-  transition: background 0.2s;
-  letter-spacing: 0.02em;
+  transition: background 0.18s;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   align-self: flex-start;
 }
 
@@ -877,24 +896,19 @@ footer {
   .trust-strip { grid-template-columns: repeat(2, 1fr); }
   .ev-banner { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  nav .nav-left .nav-links { display: none; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
 }
 
 @media (max-width: 680px) {
-  .hamburger { display: flex; }
-
-  /* Nav: hide phone (it's in the sticky bar), tighten brand */
+  /* Nav: hide phone on small screens (sticky bar covers it) */
   .nav-phone { display: none; }
-  .nav-cta-link { padding: 0.38rem 0.85rem; font-size: 0.75rem; }
-  .nav-brand { font-size: 0.78rem; }
-  .nav-brand span { display: none; }
+  .nav-logo span { display: none; }
 
   /* Hero */
-  .hero { align-items: flex-end; justify-content: flex-start; }
-  .hero-inner { justify-content: flex-start; }
-  .hero-panel { padding: 1.5rem; max-width: 100%; }
-  .hero-panel h1 { font-size: 1.65rem; }
-  .btn-ghost { display: none; }
+  .hero-panel { max-width: 100%; }
+  .hero-panel h1 { font-size: 2rem; }
+  .btn-text { display: none; }
 
   /* Trust strip: 2×2, compact */
   .trust-strip { grid-template-columns: 1fr 1fr !important; }
@@ -1032,14 +1046,18 @@ footer {
 
 <!-- NAV -->
 <header id="site-header">
-  <div class="nav-left">
-    <a href="tel:02088542550" class="nav-phone">020 8854 2550</a>
-    <a href="#enquiry" class="nav-cta-link">Booking request</a>
-  </div>
-  <div class="nav-brand">
-    Morgan Richards Garage Ltd
-    <span>Charlton, SE7 · Est. 1994</span>
-  </div>
+  <a href="#hero" class="nav-logo">
+    Morgan Richards
+    <span>Est. 1994 · Charlton SE7</span>
+  </a>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="#services">Services</a>
+    <a href="#services">MOT</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#enquiry">Contact</a>
+  </nav>
+  <a href="tel:02088542550" class="nav-phone">020 8854 2550</a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -1077,16 +1095,16 @@ footer {
 </div>
 
 <!-- HERO -->
-<section class="hero" style="height:70vh;min-height:500px;">
+<section class="hero" id="hero">
   <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-panel">
-      <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--chrome);margin-bottom:0.75rem;">Est. 1994 &nbsp;·&nbsp; Charlton SE7 &nbsp;·&nbsp; IMI Certified EV</div>
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.45);margin-bottom:1.25rem;">Est. 1994 &nbsp;·&nbsp; Charlton SE7 &nbsp;·&nbsp; IMI Certified EV</div>
       <h1>SE London's most trusted local garage</h1>
       <p>Honest mechanics, fair prices, no surprises. 4.8 stars across 193 Google reviews — and we answer the phone.</p>
-      <a href="#enquiry" class="btn-primary">Booking request</a>
-      <a href="#reviews" class="btn-ghost">Read reviews</a>
+      <a href="#enquiry" class="btn-primary btn-hero">Book a service</a>
+      <a href="#reviews" class="btn-text">Read reviews</a>
     </div>
   </div>
 </section>
@@ -1094,7 +1112,7 @@ footer {
 <!-- HIGHLIGHTS -->
 <section class="highlights" id="about-intro">
   <div class="highlights-grid">
-    <div class="highlight-tile dark">
+    <div class="highlight-tile">
       <div class="highlight-eyebrow">Established 1994</div>
       <h3>Thirty years on the same road</h3>
       <p>Originally in Woolwich, now in Charlton for fifteen years. Richard and the team have kept SE London moving for three decades — the same faces, the same standards.</p>
@@ -1416,11 +1434,6 @@ footer {
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
-
-  // Hero zoom on load
-  window.addEventListener('load', () => {
-    document.getElementById('hero-bg').classList.add('loaded');
-  });
 
   // Mobile menu
   const hamburger = document.getElementById('hamburger');
