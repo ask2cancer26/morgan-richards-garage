@@ -903,8 +903,8 @@ footer {
   .trust-stat-num { font-size: clamp(0.78rem, 3.8vw, 1.05rem); letter-spacing: -0.02em; white-space: nowrap; }
   .trust-stat-label { font-size: clamp(0.42rem, 1.8vw, 0.5rem); letter-spacing: 0.04em; margin-top: 0.15rem; }
 
-  /* Hero: content-height only, text sits immediately below trust strip */
-  .hero { height: auto; min-height: 0; align-items: flex-start; padding: 2.5rem 0 3rem; }
+  /* Hero: fill remaining viewport below trust strip, text at top */
+  .hero { height: calc(100svh - 125px); min-height: 380px; align-items: flex-start; padding: 2.5rem 0 3rem; }
   .hero-bg { background-position: center 70%; }
   .hero-overlay { background: linear-gradient(to bottom, rgba(22,24,27,0.7) 0%, rgba(22,24,27,0.55) 100%); }
 
