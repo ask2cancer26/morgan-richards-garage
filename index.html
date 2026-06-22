@@ -897,7 +897,8 @@ footer {
   .btn-text { display: none; }
 
   /* Trust strip: single compact row */
-  .trust-strip { grid-template-columns: repeat(4, 1fr) !important; padding: 0; border-left: none; border-right: none; }
+  .trust-strip { grid-template-columns: repeat(3, 1fr) !important; padding: 0; border-left: none; border-right: none; }
+  .trust-stat--yell { display: none; }
   .trust-stat { padding: 0.5rem 0.2rem; }
   .trust-stat-num { font-size: clamp(0.78rem, 3.8vw, 1.05rem); letter-spacing: -0.02em; }
   .trust-stat-label { font-size: clamp(0.42rem, 1.8vw, 0.5rem); letter-spacing: 0.04em; margin-top: 0.15rem; }
@@ -1172,7 +1173,7 @@ footer {
       <div class="trust-stat-num">4.8</div>
       <div class="trust-stat-label">Google (193)</div>
     </div>
-    <div class="trust-stat">
+    <div class="trust-stat trust-stat--yell">
       <div class="trust-stat-num">4.9</div>
       <div class="trust-stat-label">Yell</div>
     </div>
