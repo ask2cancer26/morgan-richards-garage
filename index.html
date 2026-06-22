@@ -84,7 +84,6 @@ header.scrolled {
   white-space: nowrap;
   text-decoration: none;
 }
-
 .nav-logo span {
   display: block;
   font-size: 0.6rem;
@@ -93,13 +92,11 @@ header.scrolled {
   color: rgba(255,255,255,0.4);
   margin-top: 0.1rem;
 }
-
 .nav-links {
   display: flex;
   gap: 2.5rem;
   align-items: center;
 }
-
 .nav-links a {
   color: rgba(255,255,255,0.65);
   text-decoration: none;
@@ -109,9 +106,7 @@ header.scrolled {
   letter-spacing: 0.08em;
   transition: color 0.18s;
 }
-
 .nav-links a:hover { color: var(--white); }
-
 .nav-phone {
   color: rgba(255,255,255,0.65);
   text-decoration: none;
@@ -121,7 +116,6 @@ header.scrolled {
   transition: color 0.18s;
   white-space: nowrap;
 }
-
 .nav-phone:hover { color: var(--white); }
 
 /* Mobile nav */
@@ -177,7 +171,7 @@ header.scrolled {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  padding-bottom: 9vh;
+  padding-bottom: 8vh;
 }
 
 .hero-bg {
@@ -186,7 +180,7 @@ header.scrolled {
   background-image: url('images/hero.jpg');
   background-image: image-set(url('images/hero.webp') type('image/webp'), url('images/hero.jpg') type('image/jpeg'));
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 55%;
 }
 
 .hero-overlay {
@@ -216,16 +210,16 @@ header.scrolled {
   color: var(--white);
   font-weight: 700;
   margin-bottom: 1rem;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 .hero-panel p {
   font-size: 1rem;
-  color: rgba(255,255,255,0.62);
-  line-height: 1.65;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.6;
   margin-bottom: 2rem;
   font-weight: 300;
-  max-width: 460px;
+  max-width: 440px;
 }
 
 .btn-primary {
@@ -240,36 +234,27 @@ header.scrolled {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border-radius: 0;
-  transition: background 0.18s;
+  transition: background 0.2s;
 }
 
 .btn-primary:hover { background: var(--steel-light); }
 
-/* Hero variant: white button on dark image */
-.btn-hero {
-  background: var(--white);
-  color: var(--graphite);
-}
-
-.btn-hero:hover { background: var(--paper-dark); }
+.btn-hero { background: var(--white); color: var(--graphite); }
+.btn-hero:hover { background: var(--paper); }
 
 .btn-text {
   display: inline-block;
-  color: rgba(255,255,255,0.65);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  background: none;
-  border: none;
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 0.88rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.78rem;
   font-weight: 400;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 1px;
   margin-left: 1.5rem;
-  cursor: pointer;
-  transition: color 0.18s;
-  padding: 0;
+  transition: color 0.18s, border-color 0.18s;
 }
-
-.btn-text:hover { color: var(--white); }
+.btn-text:hover { color: var(--white); border-color: rgba(255,255,255,0.7); }
 
 .btn-ghost {
   display: inline-block;
@@ -278,11 +263,11 @@ header.scrolled {
   text-decoration: none;
   padding: 0.8rem 1.8rem;
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border-radius: 0;
-  transition: border-color 0.18s, color 0.18s;
+  transition: border-color 0.2s, color 0.2s;
   margin-left: 0.75rem;
 }
 
@@ -413,12 +398,11 @@ header.scrolled {
   transition: background 0.18s, border-left-color 0.18s;
 }
 
-.service-card:hover {
-  background: var(--paper-dark);
-  border-left-color: var(--steel);
-}
+.service-card:hover { background: var(--paper-dark); border-left-color: var(--steel); }
 
-.service-bar { display: none; }
+.service-bar {
+  display: none;
+}
 
 .service-card h3 {
   font-size: 1rem;
@@ -545,7 +529,7 @@ header.scrolled {
   color: #d4a843;
   font-size: 1rem;
   letter-spacing: 0.12em;
-  display: block;
+  display: none;
   margin: 0.3rem 0;
 }
 
@@ -581,7 +565,6 @@ header.scrolled {
 }
 
 .review-stars { display: none; }
-.rating-stars { display: none; }
 
 .review-text {
   font-size: 0.88rem;
@@ -776,11 +759,11 @@ textarea { resize: vertical; min-height: 120px; }
   font-size: 0.78rem;
   font-weight: 500;
   border: none;
-  border-radius: 0;
   cursor: pointer;
-  transition: background 0.18s;
+  transition: background 0.2s;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  border-radius: 0;
   align-self: flex-start;
 }
 
@@ -901,8 +884,6 @@ footer {
 }
 
 @media (max-width: 680px) {
-  /* Nav: hide phone on small screens (sticky bar covers it) */
-  .nav-phone { display: none; }
   .nav-logo span { display: none; }
 
   /* Hero */
@@ -960,6 +941,102 @@ footer {
   text-transform: uppercase;
   color: var(--chrome);
   margin-top: 0.4rem;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal, .reveal-left, .reveal-right {
+  opacity: 0;
+  transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
+}
+.reveal { transform: translateY(28px); }
+.reveal-left { transform: translateX(-28px); }
+.reveal-right { transform: translateX(28px); }
+.reveal.visible, .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: none; }
+[data-delay="1"] { transition-delay: .1s; }
+[data-delay="2"] { transition-delay: .2s; }
+[data-delay="3"] { transition-delay: .3s; }
+[data-delay="4"] { transition-delay: .4s; }
+[data-delay="5"] { transition-delay: .5s; }
+[data-delay="6"] { transition-delay: .6s; }
+
+/* ── FAQ ── */
+.faq { background: var(--graphite); padding: 5rem 5%; }
+.faq-inner { max-width: 780px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--hairline-light); }
+.faq-item:first-of-type { border-top: 1px solid var(--hairline-light); }
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: 'Archivo', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 1.4rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  letter-spacing: -0.01em;
+}
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--steel-light);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+.faq-item.open .faq-question::after { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.faq-answer p {
+  padding-bottom: 1.4rem;
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+/* ── FORM AJAX ── */
+.form-spinner {
+  display: none;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  margin-left: 0.6rem;
+  vertical-align: middle;
+}
+.form-submit.loading { pointer-events: none; opacity: 0.7; }
+.form-submit.loading .form-spinner { display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.form-success {
+  display: none;
+  padding: 1.4rem 1.6rem;
+  border-left: 3px solid #4caf50;
+  background: rgba(76,175,80,0.08);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin-top: 1.5rem;
+  color: var(--text);
+}
+.form-error-msg {
+  display: none;
+  padding: 0.9rem 1.2rem;
+  border-left: 3px solid #e53935;
+  background: rgba(229,57,53,0.07);
+  font-size: 0.87rem;
+  margin-top: 0.8rem;
+  color: var(--text);
 }
 
 </style>
@@ -1046,13 +1123,10 @@ footer {
 
 <!-- NAV -->
 <header id="site-header">
-  <a href="#hero" class="nav-logo">
-    Morgan Richards
-    <span>Est. 1994 · Charlton SE7</span>
-  </a>
-  <nav class="nav-links" aria-label="Main navigation">
+  <a href="#hero" class="nav-logo">Morgan Richards<span>Est. 1994 &nbsp;·&nbsp; Charlton SE7</span></a>
+  <nav class="nav-links">
     <a href="#services">Services</a>
-    <a href="#services">MOT</a>
+    <a href="#mot">MOT</a>
     <a href="#about">About</a>
     <a href="#reviews">Reviews</a>
     <a href="#enquiry">Contact</a>
@@ -1100,7 +1174,7 @@ footer {
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-panel">
-      <div class="section-eyebrow" style="color:rgba(255,255,255,0.45);margin-bottom:1.25rem;">Est. 1994 &nbsp;·&nbsp; Charlton SE7 &nbsp;·&nbsp; IMI Certified EV</div>
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.45);margin-bottom:0.9rem;">Est. 1994 &nbsp;·&nbsp; Charlton SE7 &nbsp;·&nbsp; IMI Certified EV</div>
       <h1>SE London's most trusted local garage</h1>
       <p>Honest mechanics, fair prices, no surprises. 4.8 stars across 193 Google reviews — and we answer the phone.</p>
       <a href="#enquiry" class="btn-primary btn-hero">Book a service</a>
@@ -1112,19 +1186,19 @@ footer {
 <!-- HIGHLIGHTS -->
 <section class="highlights" id="about-intro">
   <div class="highlights-grid">
-    <div class="highlight-tile">
+    <div class="highlight-tile reveal" data-delay="1">
       <div class="highlight-eyebrow">Established 1994</div>
       <h3>Thirty years on the same road</h3>
       <p>Originally in Woolwich, now in Charlton for fifteen years. Richard and the team have kept SE London moving for three decades — the same faces, the same standards.</p>
       <a href="#about" class="tile-link">About the garage</a>
     </div>
-    <div class="highlight-tile">
+    <div class="highlight-tile reveal" data-delay="2">
       <div class="highlight-eyebrow">EV &amp; Hybrid</div>
       <h3>IMI certified for electric vehicles</h3>
       <p>Most local garages aren't qualified to touch EVs. We are — IMI certified and Nexdrive approved for electric and plug-in hybrid servicing and diagnostics.</p>
       <a href="#ev" class="tile-link">EV &amp; hybrid services</a>
     </div>
-    <div class="highlight-tile">
+    <div class="highlight-tile reveal" data-delay="3">
       <div class="highlight-eyebrow">4.8 Google · 4.4 Regit · 4.9 Yell</div>
       <h3>A reputation built one job at a time</h3>
       <p>No fix, no fee. You pay when the work is done. Richard explains everything before we start — no jargon, no surprises, no pressure to authorise work you don't need.</p>
@@ -1140,38 +1214,38 @@ footer {
     <h2 class="section-heading">Full mechanical services</h2>
     <p class="section-sub">Everything your car needs, under one roof in Charlton SE7. All makes and models, from routine servicing to complex diagnostics.</p>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card reveal" data-delay="1">
         <div class="service-bar"></div>
         <h3>MOT testing</h3>
         <p>Classes 1, 2, 4, 5 and 7. Results explained clearly, no pressure on advisories.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal" data-delay="2">
         <div class="service-bar"></div>
         <h3>Servicing &amp; repairs</h3>
         <p>Full and interim services, all makes. We call you before touching anything extra.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal" data-delay="3">
         <div class="service-bar"></div>
         <h3>Diagnostics</h3>
         <p>Engine light on? We find the actual cause — no guesswork, no unnecessary parts.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal" data-delay="4">
         <div class="service-bar"></div>
         <h3>Tyres &amp; brakes</h3>
         <p>All major brands supplied and fitted. We show you the worn parts before we charge.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal" data-delay="5">
         <div class="service-bar"></div>
         <h3>Air conditioning</h3>
         <p>Regas, leak detection, full system service. We check for leaks before recharging.</p>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal" data-delay="6">
         <div class="service-bar"></div>
         <h3>Exhausts &amp; suspension</h3>
         <p>Replacement and repair, common parts kept in stock to get you back on the road fast.</p>
       </div>
     </div>
-    <div class="ev-banner" id="ev">
+    <div class="ev-banner reveal" id="ev">
       <div>
         <h3>Electric &amp; plug-in hybrid specialists</h3>
         <p>IMI certified and Nexdrive approved. Most SE London garages are not qualified to service EVs safely — we are. From routine EV servicing to high-voltage system diagnostics, bring your electric or hybrid vehicle to a team that knows what they're doing.</p>
@@ -1213,32 +1287,32 @@ footer {
       </div>
     </div>
     <div class="reviews-grid">
-      <div class="review-card featured">
+      <div class="review-card featured reveal" data-delay="1">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">Richard and his team have been adding the extra onto the ordinary for over thirty years — providing EXTRAORDINARY highly skilled, honest service, advice, communication and support. There is no one I trust more with my car.</p>
         <div class="review-attribution">Long-time customer &nbsp;·&nbsp; Google</div>
       </div>
-      <div class="review-card">
+      <div class="review-card reveal" data-delay="2">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">Richard explains everything so clearly and thoroughly that even I understand what's going on. It's the first garage I've never had to question.</p>
         <div class="review-attribution">Verified customer &nbsp;·&nbsp; Yell</div>
       </div>
-      <div class="review-card">
+      <div class="review-card reveal" data-delay="3">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">Excellent garage — trustworthy, helpful and reliable honest service. Very professional and friendly. Couldn't want a better garage.</p>
         <div class="review-attribution">Verified customer</div>
       </div>
-      <div class="review-card">
+      <div class="review-card reveal" data-delay="4">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">They had an equipment fault mid-MOT and immediately arranged for another garage nearby to complete it the same day. No other garage I've been to would do that.</p>
         <div class="review-attribution">Verified customer &nbsp;·&nbsp; Yell</div>
       </div>
-      <div class="review-card">
+      <div class="review-card reveal" data-delay="5">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">A great bunch — I totally trust them. They aren't out to rip people off and have helped me so much. Super friendly service, every single time.</p>
         <div class="review-attribution">Member &nbsp;·&nbsp; Nextdoor</div>
       </div>
-      <div class="review-card">
+      <div class="review-card reveal" data-delay="6">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">Richard has been servicing my car for over 6 years. Always friendly, great opening times, and they contact you before any extra work. Excellent garage.</p>
         <div class="review-attribution">Regular customer &nbsp;·&nbsp; Google</div>
@@ -1250,7 +1324,7 @@ footer {
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-inner">
-    <div class="about-prose">
+    <div class="about-prose reveal-left">
       <div class="section-eyebrow">About us</div>
       <h2>An honest garage run by the same family for thirty years</h2>
       <p style="font-size:0.97rem;color:var(--text-muted);line-height:1.75;font-weight:300;margin-bottom:1.8rem;">Founded in Woolwich in 1994, based in Charlton SE7 for fifteen years. Richard and the team do the job properly, explain it clearly, and only charge for what the car actually needs. Every Google review answered personally.</p>
@@ -1286,7 +1360,7 @@ footer {
         </div>
       </div>
     </div>
-    <div class="about-sidebar">
+    <div class="about-sidebar reveal-right">
       <h4>Opening hours &amp; details</h4>
       <div class="sidebar-row">
         <span class="sidebar-label">Monday – Friday</span>
@@ -1310,12 +1384,50 @@ footer {
       </div>
       <div class="sidebar-row">
         <span class="sidebar-label">Payment</span>
-        <span class="sidebar-value" style="font-size:0.78rem">Cash, card, BACS, Apple Pay</span>
+        <span class="sidebar-value" style="font-size:0.78rem">Cash, card, BACS, Apple Pay, Google Pay</span>
       </div>
       <div class="coverage-block">
         <h4>Areas covered</h4>
         <p>Charlton, Greenwich, Woolwich, Bexley, Eltham, Sidcup, Lewisham, Thamesmead, Erith, Plumstead and surrounding areas of SE London.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="section-eyebrow" style="color:var(--chrome);margin-bottom:0.5rem;">Common questions</div>
+    <h2 class="section-heading" style="color:var(--white);margin-bottom:2.5rem;">What customers ask us most</h2>
+
+    <div class="faq-item reveal" data-delay="1">
+      <button class="faq-question" aria-expanded="false">How much does an MOT cost?</button>
+      <div class="faq-answer"><p>Our MOT prices are competitive for SE London — call us on 020 8854 2550 for a current quote. We test classes 1, 2, 4, 5 and 7. If your car fails, we'll explain exactly what needs fixing and give you a written quote before we touch anything. No pressure, no surprises.</p></div>
+    </div>
+
+    <div class="faq-item reveal" data-delay="2">
+      <button class="faq-question" aria-expanded="false">Do you service electric and hybrid cars?</button>
+      <div class="faq-answer"><p>Yes — and most SE London garages don't. We're IMI certified for electric and hybrid vehicles, and approved as a Nexdrive EV specialist centre. We handle routine EV servicing, brake fluid changes, tyre and brake work, and high-voltage system diagnostics. If you're not sure whether your car qualifies, just call us.</p></div>
+    </div>
+
+    <div class="faq-item reveal" data-delay="3">
+      <button class="faq-question" aria-expanded="false">Can I wait while my car is being worked on?</button>
+      <div class="faq-answer"><p>You're welcome to wait — we have a reception area and we'll keep you updated throughout. For longer jobs like a full service or complex diagnostics, many customers prefer to drop the car off in the morning and collect it later in the day. We'll always give you a realistic time estimate when you book in.</p></div>
+    </div>
+
+    <div class="faq-item reveal" data-delay="4">
+      <button class="faq-question" aria-expanded="false">Will you call me before doing extra work?</button>
+      <div class="faq-answer"><p>Always. This is one of our core commitments — we never start work we haven't agreed with you first. If we find something unexpected during a service or MOT, we'll call you, explain what we found, show you the worn part if possible, and give you a clear price before we proceed. You decide.</p></div>
+    </div>
+
+    <div class="faq-item reveal" data-delay="5">
+      <button class="faq-question" aria-expanded="false">When do I pay?</button>
+      <div class="faq-answer"><p>You pay when the work is done — not before. We accept cash, card, BACS transfer, and Apple Pay. We don't ask for a deposit on standard work. For large or specialist parts ordered in advance, we may ask you to cover the parts cost upfront, but we'll always tell you this at the time of booking.</p></div>
+    </div>
+
+    <div class="faq-item reveal" data-delay="6">
+      <button class="faq-question" aria-expanded="false">Where are you and how do I book?</button>
+      <div class="faq-answer"><p>We're at Unit 12, Anchorage Point, Anchor &amp; Hope Lane, Charlton, London SE7 7SQ — there's parking on site. The easiest way to book is to call us on <a href="tel:02088542550" style="color:var(--steel-light)">020 8854 2550</a> or <a href="tel:02088545791" style="color:var(--steel-light)">020 8854 5791</a> during opening hours (Mon–Fri 8am–6pm, Sat 9am–1pm). You can also use the booking request form below and we'll get back to you within one working day.</p></div>
     </div>
   </div>
 </section>
@@ -1330,12 +1442,17 @@ footer {
       <p class="contact-line"><a href="tel:02088542550">020 8854 2550</a></p>
       <p class="contact-line"><a href="tel:02088545791">020 8854 5791</a></p>
       <p class="contact-line" style="margin-top:1rem; font-size:0.83rem">Unit 12, Anchorage Point<br>Anchor &amp; Hope Lane<br>Charlton, London SE7 7SQ</p>
+      <div style="margin-top:1.5rem;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.1159322796448!2d0.0316838!3d51.49273999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a8ecced390cd%3A0xbfc403bd3a15c1b7!2sMorgan%20Richards%20Garage!5e0!3m2!1sen!2suk!4v1781928827814!5m2!1sen!2suk"
+          width="100%" height="220" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Morgan Richards Garage location map"></iframe>
+      </div>
     </div>
-    <form action="https://api.web3forms.com/submit" method="POST">
+    <form id="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
       <input type="hidden" name="subject" value="New enquiry — Morgan Richards Garage">
       <input type="hidden" name="to" value="morganrichardsgarage@yahoo.co.uk">
-      <input type="hidden" name="redirect" value="https://www.morganrichardsgaragecharlton.co.uk/?sent=1">
       <input type="hidden" name="botcheck" class="hidden" style="display:none;">
       <!-- Spam honeypot --><p style="display:none"><input name="website" tabindex="-1" autocomplete="off"></p>
       <div class="form-row">
@@ -1378,9 +1495,14 @@ footer {
         <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="Tell us about your vehicle and what you need — make, model, year, and any symptoms you've noticed."></textarea>
       </div>
-      <button type="submit" class="form-submit">Send enquiry</button>
+      <button type="submit" class="form-submit">Send enquiry<span class="form-spinner"></span></button>
+      <div class="form-error-msg" id="form-error"></div>
       <p style="margin-top:1rem;font-size:0.82rem;color:var(--text-muted);">Prefer to call? <a href="tel:02088542550" style="color:var(--steel);font-weight:500;text-decoration:none;">020 8854 2550</a> &nbsp;·&nbsp; Mon–Fri 8am–6pm, Sat 9am–1pm</p>
     </form>
+    <div class="form-success" id="form-success">
+      <strong>Booking request received — thank you.</strong><br>
+      We'll be in touch within one working day to confirm. If you need to speak to us sooner, call <a href="tel:02088542550" style="color:var(--steel);font-weight:500;text-decoration:none;">020 8854 2550</a>.
+    </div>
   </div>
 </section>
 
@@ -1446,6 +1568,61 @@ footer {
   mobileMenu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => mobileMenu.classList.remove('open'));
   });
+
+  // ── SCROLL REVEAL ──
+  const ro = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+  }), { threshold: .12, rootMargin: '0px 0px -48px 0px' });
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => ro.observe(el));
+
+  // ── FAQ ACCORDION ──
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').style.maxHeight = '0';
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        const answer = item.querySelector('.faq-answer');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        item.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ── AJAX FORM ──
+  const enquiryForm = document.getElementById('enquiry-form');
+  if (enquiryForm) {
+    enquiryForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = enquiryForm.querySelector('.form-submit');
+      const errorEl = document.getElementById('form-error');
+      const successEl = document.getElementById('form-success');
+      btn.classList.add('loading');
+      errorEl.style.display = 'none';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(enquiryForm)
+        });
+        const data = await res.json();
+        if (data.success) {
+          enquiryForm.style.display = 'none';
+          successEl.style.display = 'block';
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        errorEl.textContent = 'Something went wrong — please try again or call us on 020 8854 2550.';
+        errorEl.style.display = 'block';
+      } finally {
+        btn.classList.remove('loading');
+      }
+    });
+  }
 </script>
 </body>
 </html>
