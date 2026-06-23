@@ -86,7 +86,7 @@ header.scrolled {
   font-size: 0.6rem;
   font-weight: 400;
   letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.55);
   margin-top: 0.1rem;
 }
 .nav-links {
@@ -302,7 +302,7 @@ header.scrolled {
 
 .highlight-tile.dark .highlight-eyebrow { color: var(--chrome); }
 
-.highlight-tile h3 {
+.highlight-tile h2 {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text);
@@ -310,7 +310,7 @@ header.scrolled {
   line-height: 1.2;
 }
 
-.highlight-tile.dark h3 { color: var(--white); }
+.highlight-tile.dark h2 { color: var(--white); }
 
 .highlight-tile p {
   font-size: 0.9rem;
@@ -618,7 +618,7 @@ header.scrolled {
   padding: 2.5rem;
 }
 
-.about-sidebar h4 {
+.about-sidebar h3 {
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -648,7 +648,7 @@ header.scrolled {
   border-top: 1px solid var(--hairline);
 }
 
-.coverage-block h4 {
+.coverage-block h3 {
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -792,7 +792,7 @@ footer {
   max-width: 280px;
 }
 
-.footer-col h5 {
+.footer-col h3 {
   font-family: 'Archivo', sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
@@ -804,8 +804,8 @@ footer {
 
 .footer-col ul { list-style: none; }
 .footer-col li { margin-bottom: 0.55rem; font-size: 0.83rem; }
-.footer-col a { color: var(--chrome); text-decoration: none; transition: color 0.2s; }
-.footer-col a:hover { color: var(--white); }
+.footer-col a { color: var(--chrome); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(141,147,155,0.4); transition: color 0.2s; }
+.footer-col a:hover { color: var(--white); text-decoration-color: rgba(255,255,255,0.4); }
 
 .footer-bottom {
   display: flex;
@@ -815,8 +815,8 @@ footer {
   gap: 0.5rem;
 }
 
-.footer-bottom a { color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
-.footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+.footer-bottom a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+.footer-bottom a:hover { color: rgba(255,255,255,0.9); }
 
 .sticky-call {
   position: fixed;
@@ -1148,6 +1148,8 @@ footer {
   <a href="tel:02088542550">020 8854 2550</a>
 </nav>
 
+<main>
+
 <!-- TRUST STRIP -->
 <div class="trust-strip-wrap" style="padding-top:68px;">
   <div class="trust-strip">
@@ -1176,7 +1178,7 @@ footer {
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-panel">
-      <div class="section-eyebrow" style="color:rgba(255,255,255,0.45);margin-bottom:0.9rem;">Est. 1994 &nbsp;·&nbsp; Charlton SE7 &nbsp;·&nbsp; IMI Certified EV</div>
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.65);margin-bottom:0.9rem;">Est. 1994 &nbsp;·&nbsp; Charlton SE7 &nbsp;·&nbsp; IMI Certified EV</div>
       <h1>SE London's most trusted local garage</h1>
       <p>Honest mechanics, fair prices, no surprises. 4.8 stars across 193 Google reviews — and we answer the phone.</p>
       <a href="#enquiry" class="btn-primary btn-hero">Book a service</a>
@@ -1190,19 +1192,19 @@ footer {
   <div class="highlights-grid">
     <div class="highlight-tile reveal" data-delay="1">
       <div class="highlight-eyebrow">Established 1994</div>
-      <h3>Thirty years on the same road</h3>
+      <h2>Thirty years on the same road</h2>
       <p>Originally in Woolwich, now in Charlton for fifteen years. Richard and the team have kept SE London moving for three decades — the same faces, the same standards.</p>
       <a href="#about" class="tile-link">About the garage</a>
     </div>
     <div class="highlight-tile reveal" data-delay="2">
       <div class="highlight-eyebrow">EV &amp; Hybrid</div>
-      <h3>IMI certified for electric vehicles</h3>
+      <h2>IMI certified for electric vehicles</h2>
       <p>Most local garages aren't qualified to touch EVs. We are — IMI certified and Nexdrive approved for electric and plug-in hybrid servicing and diagnostics.</p>
       <a href="#ev" class="tile-link">EV &amp; hybrid services</a>
     </div>
     <div class="highlight-tile reveal" data-delay="3">
       <div class="highlight-eyebrow">4.8 Google · 4.4 Regit · 4.9 Yell</div>
-      <h3>A reputation built one job at a time</h3>
+      <h2>A reputation built one job at a time</h2>
       <p>No fix, no fee. You pay when the work is done. Richard explains everything before we start — no jargon, no surprises, no pressure to authorise work you don't need.</p>
       <a href="#reviews" class="tile-link">Read customer reviews</a>
     </div>
@@ -1363,7 +1365,7 @@ footer {
       </div>
     </div>
     <div class="about-sidebar reveal-right">
-      <h4>Opening hours &amp; details</h4>
+      <h3>Opening hours &amp; details</h3>
       <div class="sidebar-row">
         <span class="sidebar-label">Monday – Friday</span>
         <span class="sidebar-value">8:00am – 6:00pm</span>
@@ -1389,7 +1391,7 @@ footer {
         <span class="sidebar-value" style="font-size:0.78rem">Cash, card, BACS, Apple Pay, Google Pay</span>
       </div>
       <div class="coverage-block">
-        <h4>Areas covered</h4>
+        <h3>Areas covered</h3>
         <p>Charlton, Greenwich, Woolwich, Bexley, Eltham, Sidcup, Lewisham, Thamesmead, Erith, Plumstead and surrounding areas of SE London.</p>
       </div>
     </div>
@@ -1508,6 +1510,8 @@ footer {
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1517,7 +1521,7 @@ footer {
         <p class="footer-desc">Family-run garage serving SE London since 1994. AutoCare registered. IMI certified for EV and hybrid vehicles. Honest work, fair prices.</p>
       </div>
       <div class="footer-col">
-        <h5>Services</h5>
+        <h3>Services</h3>
         <ul>
           <li><a href="#services">MOT testing</a></li>
           <li><a href="#services">Car servicing</a></li>
@@ -1528,7 +1532,7 @@ footer {
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Contact</h5>
+        <h3>Contact</h3>
         <ul>
           <li><a href="tel:02088542550">020 8854 2550</a></li>
           <li><a href="tel:02088545791">020 8854 5791</a></li>
