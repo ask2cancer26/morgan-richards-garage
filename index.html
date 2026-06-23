@@ -10,15 +10,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.morganrichardsgaragecharlton.co.uk/">
 <title>Morgan Richards Garage Ltd | MOT, Servicing &amp; EV Specialists | Charlton SE7</title>
-  <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high" type="image/webp">
+  <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high" type="image/webp" media="(min-width: 681px)">
+  <link rel="preload" as="image" href="images/hero-mobile.webp" fetchpriority="high" type="image/webp" media="(max-width: 680px)">
   <meta name="theme-color" content="#16181b">
-  <!-- Fonts: non-render-blocking -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Instrument+Sans:wght@300;400;500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Instrument+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Instrument+Sans:wght@300;400;500&display=swap"></noscript>
+  <link rel="preload" as="font" href="fonts/archivo-latin.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/instrument-sans-latin.woff2" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600 700;font-display:swap;src:url('fonts/archivo-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:300 400 500;font-display:swap;src:url('fonts/instrument-sans-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root {
   --graphite: #16181b;
   --graphite-mid: #1e2128;
@@ -46,7 +45,6 @@ body {
   line-height: 1.65;
 }
 
-/* ── TYPOGRAPHY ── */
 h1, h2, h3, h4, h5 {
   font-family: 'Archivo', sans-serif;
   font-weight: 600;
@@ -54,7 +52,6 @@ h1, h2, h3, h4, h5 {
   letter-spacing: -0.025em;
 }
 
-/* ── NAV ── */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -118,7 +115,6 @@ header.scrolled {
 }
 .nav-phone:hover { color: var(--white); }
 
-/* Mobile nav */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -161,7 +157,6 @@ header.scrolled {
   border-bottom: 1px solid var(--hairline-light);
 }
 
-/* ── HERO ── */
 .hero {
   position: relative;
   width: 100%;
@@ -273,7 +268,6 @@ header.scrolled {
 
 .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); }
 
-/* ── HIGHLIGHTS ── */
 .highlights {
   max-width: 1180px;
   margin: 0 auto;
@@ -344,7 +338,6 @@ header.scrolled {
 .highlight-tile.dark .tile-link { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.2); }
 .highlight-tile.dark .tile-link:hover { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.5); }
 
-/* ── SERVICES ── */
 .services {
   background: var(--paper);
   padding: 128px 5%;
@@ -418,7 +411,6 @@ header.scrolled {
   font-weight: 300;
 }
 
-/* EV callout inside services */
 .ev-banner {
   margin-top: 1px;
   background: var(--graphite);
@@ -445,7 +437,6 @@ header.scrolled {
   max-width: 560px;
 }
 
-/* ── GALLERY ── */
 .gallery {
   padding: 0;
   display: grid;
@@ -488,7 +479,6 @@ header.scrolled {
   text-transform: uppercase;
 }
 
-/* ── REVIEWS ── */
 .reviews {
   background: var(--graphite);
   padding: 128px 5%;
@@ -588,7 +578,6 @@ header.scrolled {
   letter-spacing: 0.1em;
 }
 
-/* ── ABOUT ── */
 .about {
   padding: 128px 5%;
   background: var(--white);
@@ -675,7 +664,6 @@ header.scrolled {
   font-weight: 300;
 }
 
-/* ── ENQUIRY FORM ── */
 .enquiry {
   background: var(--paper);
   padding: 128px 5%;
@@ -769,7 +757,6 @@ textarea { resize: vertical; min-height: 120px; }
 
 .form-submit:hover { background: var(--graphite-light); }
 
-/* ── FOOTER ── */
 footer {
   background: var(--graphite);
   padding: 4rem 5% 6rem;
@@ -831,7 +818,6 @@ footer {
 .footer-bottom a { color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
 .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
 
-/* ── STICKY CALL BAR ── */
 .sticky-call {
   position: fixed;
   bottom: 0; left: 0; right: 0;
@@ -863,10 +849,8 @@ footer {
 
 .sticky-call a:hover { background: var(--steel-light); }
 
-/* ── ANIMATIONS ── */
 @keyframes slideUp { to { transform: translateY(0); } }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 960px) {
   .highlights-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr 1fr; }
@@ -891,34 +875,34 @@ footer {
 @media (max-width: 680px) {
   .nav-logo span { display: none; }
 
-  /* Hero */
+  
   .hero-panel { max-width: 100%; }
   .hero-panel h1 { font-size: 2rem; }
   .btn-text { display: none; }
 
-  /* Trust strip: single compact row */
+  
   .trust-strip { grid-template-columns: repeat(3, 1fr) !important; padding: 0; border-left: none; border-right: none; }
   .trust-stat--yell { display: none; }
   .trust-stat { padding: 0.5rem 0.2rem; }
   .trust-stat-num { font-size: clamp(0.78rem, 3.8vw, 1.05rem); letter-spacing: -0.02em; white-space: nowrap; }
   .trust-stat-label { font-size: clamp(0.42rem, 1.8vw, 0.5rem); letter-spacing: 0.04em; margin-top: 0.15rem; }
 
-  /* Hero: fill remaining viewport below trust strip, text at top */
+  
   .hero { height: calc(100svh - 125px); min-height: 380px; align-items: flex-start; padding: 2.5rem 0 3rem; }
-  .hero-bg { background-position: center 70%; }
+  .hero-bg { background-position: center 70%; background-image: url('images/hero-mobile.webp'); background-image: image-set(url('images/hero-mobile.webp') type('image/webp'), url('images/hero.jpg') type('image/jpeg')); }
   .hero-overlay { background: linear-gradient(to bottom, rgba(22,24,27,0.7) 0%, rgba(22,24,27,0.55) 100%); }
 
-  /* Reviews rating block — redundant with trust strip on mobile */
+  
   .rating-block { display: none; }
 
-  /* Section padding */
+  
   .highlights { padding: 72px 5%; }
   .services { padding: 72px 5%; }
   .reviews { padding: 72px 5%; }
   .about { padding: 72px 5%; }
   .enquiry { padding: 72px 5%; }
 
-  /* Rest */
+  
   .services-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
   .gallery-item { height: 240px; }
@@ -927,7 +911,6 @@ footer {
   footer { padding-bottom: 9rem; }
 }
 
-/* ── TRUST STRIP ── */
 .trust-strip-wrap {
   background: var(--graphite);
   border-bottom: 1px solid var(--hairline-light);
@@ -965,7 +948,6 @@ footer {
   margin-top: 0.4rem;
 }
 
-/* ── SCROLL REVEAL ── */
 .reveal, .reveal-left, .reveal-right {
   opacity: 0;
   transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
@@ -981,7 +963,6 @@ footer {
 [data-delay="5"] { transition-delay: .5s; }
 [data-delay="6"] { transition-delay: .6s; }
 
-/* ── FAQ ── */
 .faq { background: var(--graphite); padding: 5rem 5%; }
 .faq-inner { max-width: 780px; margin: 0 auto; }
 .faq-item { border-bottom: 1px solid var(--hairline-light); }
@@ -1026,7 +1007,6 @@ footer {
   line-height: 1.75;
 }
 
-/* ── FORM AJAX ── */
 .form-spinner {
   display: none;
   width: 15px;
