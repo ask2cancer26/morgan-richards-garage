@@ -1,1 +1,3 @@
-/* /index.html 200
+# No SPA catch-all: this is a single static page, and `/* /index.html 200`
+# made every unknown URL return the homepage with a 200 (a soft 404).
+# Unknown paths now fall through to the host's real 404.

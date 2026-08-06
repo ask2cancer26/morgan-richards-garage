@@ -1,6 +1,6 @@
 # Morgan Richards Garage Ltd
 
-> Family-run garage in Charlton SE7, SE London, established 1994. MOT testing (classes 1, 2, 4, 5 & 7), car servicing, diagnostics, tyres, brakes, air conditioning, exhausts, and EV & hybrid specialists. IMI certified and Nexdrive approved for electric vehicles. Rated 4.8 stars across 193 Google reviews and 4.9 on Yell.
+> Family-run garage in Charlton SE7, SE London, established 1994. MOT testing (classes 1, 2, 4, 5 & 7), car servicing, diagnostics, tyres, brakes, air conditioning, exhausts, and EV & hybrid specialists. IMI certified and Nexdrive approved for electric vehicles. Rated 4.8 across 193 Google reviews, 4.9 on Yell, and 4.4 across 1,500+ Regit reviews.
 
 ## Services
 
@@ -26,12 +26,15 @@ Charlton, Greenwich, Woolwich, Bexley, Eltham, Sidcup, Lewisham, Thamesmead, Eri
 - IMI certified for EV and hybrid servicing
 - Nexdrive approved
 - AutoCare registered member
-- 1,500+ Regit reviews
 - 4.8 Google rating (193 reviews)
+- 4.9 Yell rating
+- 4.4 Regit rating (1,500+ reviews)
 
 ## Website
 
 - [Home](https://www.morganrichardsgaragecharlton.co.uk/)
-- [Book a service](https://www.morganrichardsgaragecharlton.co.uk/#enquiry)
+- [Send an enquiry](https://www.morganrichardsgaragecharlton.co.uk/#enquiry)
 - [Customer reviews](https://www.morganrichardsgaragecharlton.co.uk/#reviews)
 - [About the garage](https://www.morganrichardsgaragecharlton.co.uk/#about)
+- [How it works](https://www.morganrichardsgaragecharlton.co.uk/#how-it-works)
+- [Privacy notice](https://www.morganrichardsgaragecharlton.co.uk/#privacy)

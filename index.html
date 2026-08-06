@@ -9,6 +9,15 @@
 <meta property="og:description" content="Family-run garage serving SE London since 1994. MOT testing, servicing, EV &amp; hybrid specialists. 4.8 stars across 193 Google reviews.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.morganrichardsgaragecharlton.co.uk/">
+<meta property="og:site_name" content="Morgan Richards Garage Ltd">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://www.morganrichardsgaragecharlton.co.uk/images/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Morgan Richards Garage Ltd forecourt on Anchor &amp; Hope Lane, Charlton SE7">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.morganrichardsgaragecharlton.co.uk/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Morgan Richards Garage Ltd | MOT, Servicing &amp; EV Specialists | Charlton SE7</title>
   <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high" type="image/webp" media="(min-width: 681px)">
   <link rel="preload" as="image" href="images/hero-mobile.webp" fetchpriority="high" type="image/webp" media="(max-width: 680px)">
@@ -36,6 +45,9 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
+
+/* keep anchor targets clear of the 68px fixed header */
+[id] { scroll-margin-top: 88px; }
 
 body {
   font-family: 'Instrument Sans', sans-serif;
@@ -107,7 +119,11 @@ header.scrolled {
 .nav-phone {
   color: rgba(255,255,255,0.65);
   text-decoration: none;
-  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.25rem;
+  font-size: 0.85rem;
   font-weight: 400;
   letter-spacing: 0.03em;
   transition: color 0.18s;
@@ -118,9 +134,14 @@ header.scrolled {
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
+  /* 44x44 minimum tap target */
+  width: 44px;
+  height: 44px;
+  margin-right: -11px;
   background: none;
   border: none;
 }
@@ -160,7 +181,9 @@ header.scrolled {
 .hero {
   position: relative;
   width: 100%;
-  height: calc(100svh - 156px);
+  /* hero now sits at the top under the transparent fixed header; the reserved
+     space leaves the trust strip just peeking above the fold to invite scroll */
+  height: calc(100svh - 150px);
   min-height: 500px;
   overflow: hidden;
   display: flex;
@@ -181,7 +204,11 @@ header.scrolled {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(22,24,27,0.88) 0%, rgba(22,24,27,0.5) 45%, transparent 100%);
+  /* The genuine forecourt photo is brighter than the shot it replaced, so the
+     scrim has to work harder to keep the hero copy legible over the signage. */
+  background:
+    linear-gradient(to right, rgba(22,24,27,0.95) 0%, rgba(22,24,27,0.82) 38%, rgba(22,24,27,0.35) 72%, rgba(22,24,27,0.15) 100%),
+    linear-gradient(to top, rgba(22,24,27,0.55) 0%, transparent 45%);
 }
 
 .hero-inner {
@@ -209,11 +236,11 @@ header.scrolled {
 }
 
 .hero-panel p {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.68);
+  font-size: 1.02rem;
+  color: rgba(255,255,255,0.85);
   line-height: 1.6;
   margin-bottom: 2rem;
-  font-weight: 300;
+  font-weight: 400;
   max-width: 440px;
 }
 
@@ -313,30 +340,31 @@ header.scrolled {
 .highlight-tile.dark h2 { color: var(--white); }
 
 .highlight-tile p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.65;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 1.4rem;
 }
 
 .highlight-tile.dark p { color: var(--chrome); }
 
 .tile-link {
-  font-size: 0.8rem;
+  display: inline-block;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--steel);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
   letter-spacing: 0.04em;
-  border-bottom: 1px solid var(--steel);
-  padding-bottom: 1px;
-  transition: color 0.2s, border-color 0.2s;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
 }
 
-.tile-link:hover { color: var(--steel-light); border-color: var(--steel-light); }
+.tile-link:hover { color: var(--steel-light); }
 
-.highlight-tile.dark .tile-link { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.2); }
-.highlight-tile.dark .tile-link:hover { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.5); }
+.highlight-tile.dark .tile-link { color: rgba(255,255,255,0.7); }
+.highlight-tile.dark .tile-link:hover { color: rgba(255,255,255,0.95); }
 
 .services {
   background: var(--paper);
@@ -369,7 +397,7 @@ header.scrolled {
   color: var(--text-muted);
   line-height: 1.65;
   max-width: 500px;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 3.5rem;
 }
 
@@ -393,10 +421,6 @@ header.scrolled {
 
 .service-card:hover { background: var(--paper-dark); border-left-color: var(--steel); }
 
-.service-bar {
-  display: none;
-}
-
 .service-card h3 {
   font-size: 1rem;
   font-weight: 600;
@@ -405,10 +429,10 @@ header.scrolled {
 }
 
 .service-card p {
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   color: var(--text-muted);
   line-height: 1.65;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .ev-banner {
@@ -430,10 +454,10 @@ header.scrolled {
 }
 
 .ev-banner p {
-  font-size: 0.87rem;
+  font-size: 0.93rem;
   color: var(--chrome);
   line-height: 1.65;
-  font-weight: 300;
+  font-weight: 400;
   max-width: 560px;
 }
 
@@ -471,10 +495,10 @@ header.scrolled {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   padding: 0.65rem 0.9rem;
-  background: linear-gradient(transparent, rgba(14,16,18,0.8));
-  font-size: 0.68rem;
+  background: linear-gradient(transparent, rgba(14,16,18,0.85));
+  font-size: 0.74rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.85);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -519,7 +543,7 @@ header.scrolled {
   color: #d4a843;
   font-size: 1rem;
   letter-spacing: 0.12em;
-  display: none;
+  display: block;
   margin: 0.3rem 0;
 }
 
@@ -554,15 +578,21 @@ header.scrolled {
   border-left: 3px solid var(--steel);
 }
 
-.review-stars { display: none; }
+.review-stars {
+  display: block;
+  color: #d4a843;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.8rem;
+}
 
 .review-text {
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   color: rgba(255,255,255,0.65);
   line-height: 1.7;
   font-style: italic;
   margin-bottom: 1.2rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .review-card.featured .review-text {
@@ -604,7 +634,7 @@ header.scrolled {
   font-size: 0.97rem;
   color: var(--text-muted);
   line-height: 1.8;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 1.2rem;
 }
 
@@ -639,7 +669,7 @@ header.scrolled {
 
 .sidebar-row:last-child { border-bottom: none; }
 
-.sidebar-label { color: var(--text-muted); font-weight: 300; }
+.sidebar-label { color: var(--text-muted); font-weight: 400; }
 .sidebar-value { color: var(--text); font-weight: 500; text-align: right; }
 
 .coverage-block {
@@ -658,10 +688,10 @@ header.scrolled {
 }
 
 .coverage-block p {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .enquiry {
@@ -684,17 +714,19 @@ header.scrolled {
   font-size: 0.97rem;
   color: var(--text-muted);
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 2.5rem;
 }
 
 .contact-line {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
 
 .contact-line a {
+  display: inline-block;
+  padding: 0.35rem 0;
   color: var(--steel);
   text-decoration: none;
   font-weight: 500;
@@ -716,11 +748,12 @@ label {
   margin-bottom: 0.45rem;
 }
 
+/* 16px minimum: anything smaller makes iOS Safari force-zoom on focus */
 input, select, textarea {
   width: 100%;
   padding: 0.8rem 1rem;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text);
   background: var(--white);
   border: 1px solid var(--hairline);
@@ -729,6 +762,21 @@ input, select, textarea {
   transition: border-color 0.2s;
   -webkit-appearance: none;
   border-radius: 0;
+}
+
+/* -webkit-appearance:none strips the native arrow, so draw one back on */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235c606a' stroke-width='1.6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px 8px;
+  padding-right: 2.6rem;
+}
+
+input:focus-visible, select:focus-visible, textarea:focus-visible,
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--steel);
+  outline-offset: 2px;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -786,9 +834,9 @@ footer {
 }
 
 .footer-desc {
-  font-size: 0.83rem;
+  font-size: 0.88rem;
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
   max-width: 280px;
 }
 
@@ -803,8 +851,8 @@ footer {
 }
 
 .footer-col ul { list-style: none; }
-.footer-col li { margin-bottom: 0.55rem; font-size: 0.83rem; }
-.footer-col a { color: var(--chrome); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(141,147,155,0.4); transition: color 0.2s; }
+.footer-col li { margin-bottom: 0.35rem; font-size: 0.88rem; }
+.footer-col a { display: inline-block; padding: 0.3rem 0; color: var(--chrome); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(141,147,155,0.4); transition: color 0.2s; }
 .footer-col a:hover { color: var(--white); text-decoration-color: rgba(255,255,255,0.4); }
 
 .footer-bottom {
@@ -834,7 +882,7 @@ footer {
   animation: slideUp 0.4s ease 2s forwards;
 }
 
-.sticky-call p { font-size: 0.83rem; color: var(--chrome); }
+.sticky-call p { font-size: 0.88rem; color: var(--chrome); }
 
 .sticky-call a {
   background: var(--steel);
@@ -877,25 +925,30 @@ footer {
 
   
   .hero-panel { max-width: 100%; }
-  .hero-panel h1 { font-size: 2rem; }
+  .hero-panel h1 { font-size: 1.95rem; }
   .btn-text { display: none; }
+  .hero-panel .btn-primary, .hero-panel .btn-ghost { display: block; text-align: center; margin-left: 0; }
+  .hero-panel .btn-ghost { margin-top: 0.7rem; }
 
-  
-  .trust-strip { grid-template-columns: repeat(3, 1fr) !important; padding: 0; border-left: none; border-right: none; }
-  .trust-stat--yell { display: none; }
-  .trust-stat { padding: 0.5rem 0.2rem; }
-  .trust-stat-num { font-size: clamp(0.78rem, 3.8vw, 1.05rem); letter-spacing: -0.02em; white-space: nowrap; }
-  .trust-stat-label { font-size: clamp(0.42rem, 1.8vw, 0.5rem); letter-spacing: 0.04em; margin-top: 0.15rem; }
+  /* 2x2 rather than squeezing 4 across — the old rule rendered labels at ~7px */
+  .trust-strip-wrap { padding: 0; }
+  .trust-strip { grid-template-columns: repeat(2, 1fr) !important; }
+  .trust-stat { padding: 0.9rem 0.5rem; }
+  .trust-stat-num { font-size: 1.5rem; letter-spacing: -0.02em; white-space: nowrap; }
+  .trust-stat-label { font-size: 0.7rem; letter-spacing: 0.06em; margin-top: 0.25rem; }
 
-  
-  .hero { height: calc(100svh - 125px); min-height: 380px; align-items: flex-start; padding: 2.5rem 0 3rem; }
+
+  /* padding-top clears the 68px fixed header now that the hero is the first element;
+     the reserved height lets the trust strip peek above the fold */
+  .hero { height: calc(100svh - 165px); min-height: 480px; align-items: flex-start; padding: calc(68px + 1.5rem) 0 2rem; }
   .hero-bg { background-position: center 70%; background-image: url('images/hero-mobile.webp'); background-image: image-set(url('images/hero-mobile.webp') type('image/webp'), url('images/hero.jpg') type('image/jpeg')); }
-  .hero-overlay { background: linear-gradient(to bottom, rgba(22,24,27,0.7) 0%, rgba(22,24,27,0.55) 100%); }
+  .hero-overlay { background: linear-gradient(to bottom, rgba(22,24,27,0.88) 0%, rgba(22,24,27,0.78) 55%, rgba(22,24,27,0.72) 100%); }
 
-  
-  .rating-block { display: none; }
 
-  
+  .rating-block { text-align: left; }
+  .rating-num { font-size: 3rem; }
+
+
   .highlights { padding: 72px 5%; }
   .services { padding: 72px 5%; }
   .reviews { padding: 72px 5%; }
@@ -906,25 +959,34 @@ footer {
   .services-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
   .gallery-item { height: 240px; }
-  .sticky-call { flex-direction: column; gap: 0.6rem; padding: 1rem 5%; }
+  /* single row on mobile — the stacked version ate ~100px of a small viewport */
+  .sticky-call { gap: 0.75rem; padding: 0.7rem 4%; }
+  .sticky-call p { display: none; }
+  .sticky-call a { width: 100%; text-align: center; padding: 0.8rem 1rem; }
   .footer-bottom { flex-direction: column; gap: 0.4rem; }
-  footer { padding-bottom: 9rem; }
+  footer { padding-bottom: 6.5rem; }
+}
+
+/* Respect the OS "reduce motion" setting */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .sticky-call { animation: none; transform: none; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
 .trust-strip-wrap {
   background: var(--graphite);
   border-bottom: 1px solid var(--hairline-light);
+  padding: 0 5%;
 }
 .trust-strip {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 0 5%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   background: var(--hairline-light);
-  border-left: 1px solid var(--hairline-light);
-  border-right: 1px solid var(--hairline-light);
 }
 .trust-stat {
   background: var(--graphite);
@@ -987,7 +1049,7 @@ footer {
 .faq-question::after {
   content: '+';
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--steel-light);
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -1001,9 +1063,9 @@ footer {
 }
 .faq-answer p {
   padding-bottom: 1.4rem;
-  font-size: 0.93rem;
+  font-size: 0.96rem;
   color: rgba(255,255,255,0.6);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.75;
 }
 
@@ -1036,9 +1098,98 @@ footer {
   padding: 0.9rem 1.2rem;
   border-left: 3px solid #e53935;
   background: rgba(229,57,53,0.07);
-  font-size: 0.87rem;
+  font-size: 0.92rem;
   margin-top: 0.8rem;
   color: var(--text);
+  line-height: 1.6;
+}
+.form-error-msg a { color: var(--steel); font-weight: 500; }
+
+/* ── OPEN / CLOSED PILL ── */
+.open-now {
+  display: none;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+.open-now.ready { display: inline-flex; }
+.open-now .dot { width: 7px; height: 7px; border-radius: 50%; background: #4caf50; flex-shrink: 0; }
+.open-now.shut .dot { background: var(--chrome); }
+.open-now.shut { color: var(--chrome); }
+
+.hero-openhours {
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.72);
+}
+
+/* ── HOW IT WORKS STRIP ── */
+.process {
+  background: var(--graphite);
+  padding: 80px 5%;
+  border-top: 1px solid var(--hairline-light);
+}
+.process-inner { max-width: 1180px; margin: 0 auto; }
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--hairline-light);
+  border: 1px solid var(--hairline-light);
+  margin-top: 2.5rem;
+}
+.process-step { background: var(--graphite-mid); padding: 2rem 1.6rem; }
+.process-num {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--steel-light);
+  margin-bottom: 0.9rem;
+}
+.process-step h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+.process-step p { font-size: 0.9rem; color: var(--chrome); line-height: 1.65; font-weight: 400; }
+
+/* ── PRIVACY ── */
+.privacy { background: var(--paper); padding: 72px 5%; border-top: 1px solid var(--hairline); }
+.privacy-inner { max-width: 780px; margin: 0 auto; }
+.privacy-inner h2 { font-size: 1.4rem; margin-bottom: 1.2rem; }
+.privacy-inner h3 { font-size: 0.95rem; margin: 1.6rem 0 0.5rem; }
+.privacy-inner p, .privacy-inner li {
+  font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; font-weight: 400;
+}
+.privacy-inner ul { margin: 0.5rem 0 0 1.1rem; }
+.privacy-inner a { color: var(--steel); }
+
+.form-consent {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: -0.4rem;
+}
+.form-consent a { color: var(--steel); }
+
+.directions-link {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--steel);
+  text-decoration: none;
+  border-bottom: 1px solid var(--steel);
+  padding-bottom: 1px;
+}
+
+@media (max-width: 960px) {
+  .process-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .process { padding: 64px 5%; }
+  .process-grid { grid-template-columns: 1fr; }
 }
 
 </style>
@@ -1047,7 +1198,7 @@ footer {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
   "name": "Morgan Richards Garage Ltd",
-  "image": "https://www.morganrichardsgaragecharlton.co.uk/",
+  "image": "https://www.morganrichardsgaragecharlton.co.uk/images/og-card.jpg",
   "@id": "https://www.morganrichardsgaragecharlton.co.uk/",
   "url": "https://www.morganrichardsgaragecharlton.co.uk/",
   "telephone": "02088542550",
@@ -1129,35 +1280,53 @@ footer {
   <nav class="nav-links">
     <a href="#services">Services</a>
     <a href="#mot">MOT</a>
-    <a href="#about">About</a>
     <a href="#reviews">Reviews</a>
+    <a href="#about">About</a>
     <a href="#enquiry">Contact</a>
   </nav>
   <a href="tel:02088542550" class="nav-phone">020 8854 2550</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
     <span></span><span></span><span></span>
   </button>
 </header>
 
 <nav class="mobile-menu" id="mobile-menu">
   <a href="#services">Services</a>
-  <a href="#gallery">Gallery</a>
+  <a href="#mot">MOT</a>
   <a href="#reviews">Reviews</a>
   <a href="#about">About</a>
-  <a href="#enquiry">Booking request</a>
+  <a href="#enquiry">Contact</a>
   <a href="tel:02088542550">020 8854 2550</a>
 </nav>
 
 <main>
 
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-panel">
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.65);margin-bottom:0.9rem;">Est. 1994 &nbsp;·&nbsp; Charlton SE7 &nbsp;·&nbsp; IMI Certified EV</div>
+      <h1>MOT, servicing and EV repairs in Charlton SE7</h1>
+      <p>Family-run since 1994. 4.8 stars across 193 Google reviews. We call before we touch anything extra — and you pay when the job is done.</p>
+      <a href="tel:02088542550" class="btn-primary btn-hero">Call 020 8854 2550</a>
+      <a href="#enquiry" class="btn-ghost">Send enquiry</a>
+      <p class="hero-openhours">
+        <span class="open-now" id="open-now"><span class="dot"></span><span id="open-now-text"></span></span>
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- TRUST STRIP -->
-<div class="trust-strip-wrap" style="padding-top:68px;">
+<div class="trust-strip-wrap">
   <div class="trust-strip">
     <div class="trust-stat">
       <div class="trust-stat-num">4.8</div>
       <div class="trust-stat-label">Google (193)</div>
     </div>
-    <div class="trust-stat trust-stat--yell">
+    <div class="trust-stat">
       <div class="trust-stat-num">4.9</div>
       <div class="trust-stat-label">Yell</div>
     </div>
@@ -1172,27 +1341,12 @@ footer {
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-bg" id="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-inner">
-    <div class="hero-panel">
-      <div class="section-eyebrow" style="color:rgba(255,255,255,0.65);margin-bottom:0.9rem;">Est. 1994 &nbsp;·&nbsp; Charlton SE7 &nbsp;·&nbsp; IMI Certified EV</div>
-      <h1>SE London's most trusted local garage</h1>
-      <p>Honest mechanics, fair prices, no surprises. 4.8 stars across 193 Google reviews — and we answer the phone.</p>
-      <a href="#enquiry" class="btn-primary btn-hero">Send enquiry</a>
-      <a href="#reviews" class="btn-text">Read reviews</a>
-    </div>
-  </div>
-</section>
-
 <!-- HIGHLIGHTS -->
 <section class="highlights" id="about-intro">
   <div class="highlights-grid">
     <div class="highlight-tile reveal" data-delay="1">
       <div class="highlight-eyebrow">Established 1994</div>
-      <h2>Thirty years on the same road</h2>
+      <h2>Same family, same standards, since 1994</h2>
       <p>Originally in Woolwich, now in Charlton for fifteen years. Richard and the team have kept SE London moving for three decades — the same faces, the same standards.</p>
       <a href="#about" class="tile-link">About the garage</a>
     </div>
@@ -1203,9 +1357,9 @@ footer {
       <a href="#ev" class="tile-link">EV &amp; hybrid services</a>
     </div>
     <div class="highlight-tile reveal" data-delay="3">
-      <div class="highlight-eyebrow">4.8 Google · 4.4 Regit · 4.9 Yell</div>
-      <h2>A reputation built one job at a time</h2>
-      <p>No fix, no fee. You pay when the work is done. Richard explains everything before we start — no jargon, no surprises, no pressure to authorise work you don't need.</p>
+      <div class="highlight-eyebrow">4.8 Google · 4.9 Yell · 4.4 Regit</div>
+      <h2>You pay when the job is done</h2>
+      <p>Richard explains everything before we start — no jargon, no surprises, and no pressure to authorise work you don't need.</p>
       <a href="#reviews" class="tile-link">Read customer reviews</a>
     </div>
   </div>
@@ -1215,36 +1369,30 @@ footer {
 <section class="services" id="services">
   <div class="services-inner">
     <div class="section-eyebrow">What we do</div>
-    <h2 class="section-heading">Full mechanical services</h2>
-    <p class="section-sub">Everything your car needs, under one roof in Charlton SE7. All makes and models, from routine servicing to complex diagnostics.</p>
+    <h2 class="section-heading">One garage for everything your car needs — including EVs</h2>
+    <p class="section-sub">All makes and models, under one roof in Charlton SE7, from routine servicing to complex diagnostics.</p>
     <div class="services-grid">
-      <div class="service-card reveal" data-delay="1">
-        <div class="service-bar"></div>
+      <div class="service-card reveal" id="mot" data-delay="1">
         <h3>MOT testing</h3>
         <p>Classes 1, 2, 4, 5 and 7. Results explained clearly, no pressure on advisories.</p>
       </div>
       <div class="service-card reveal" data-delay="2">
-        <div class="service-bar"></div>
         <h3>Servicing &amp; repairs</h3>
         <p>Full and interim services, all makes. We call you before touching anything extra.</p>
       </div>
       <div class="service-card reveal" data-delay="3">
-        <div class="service-bar"></div>
         <h3>Diagnostics</h3>
         <p>Engine light on? We find the actual cause — no guesswork, no unnecessary parts.</p>
       </div>
       <div class="service-card reveal" data-delay="4">
-        <div class="service-bar"></div>
         <h3>Tyres &amp; brakes</h3>
         <p>All major brands supplied and fitted. We show you the worn parts before we charge.</p>
       </div>
       <div class="service-card reveal" data-delay="5">
-        <div class="service-bar"></div>
         <h3>Air conditioning</h3>
         <p>Regas, leak detection, full system service. We check for leaks before recharging.</p>
       </div>
       <div class="service-card reveal" data-delay="6">
-        <div class="service-bar"></div>
         <h3>Exhausts &amp; suspension</h3>
         <p>Replacement and repair, common parts kept in stock to get you back on the road fast.</p>
       </div>
@@ -1260,20 +1408,47 @@ footer {
 </section>
 
 <!-- GALLERY -->
-<div class="gallery" id="gallery" style="grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:300px;">
-  <div class="gallery-item tall" style="grid-row:span 1;">
-    <img loading="lazy" src="images/gallery-1.jpg" alt="Morgan Richards Garage branded AutoCare van on the forecourt, Charlton SE7" />
+<div class="gallery" id="gallery" style="grid-template-columns:1.6fr 1fr;grid-template-rows:340px;">
+  <div class="gallery-item">
+    <img loading="lazy" width="1200" height="841" src="images/gallery-2.jpg" alt="The Morgan Richards team outside the garage, with the Nexdrive EV Specialist Centre sign behind them" />
+    <div class="gallery-item-label">Richard and the team &nbsp;·&nbsp; Nexdrive EV Specialist Centre</div>
+  </div>
+  <div class="gallery-item">
+    <img loading="lazy" width="1020" height="766" src="images/gallery-1.jpg" alt="Morgan Richards Garage branded AutoCare van on the forecourt, Charlton SE7" />
     <div class="gallery-item-label">Anchor &amp; Hope Lane, Charlton SE7</div>
   </div>
-  <div class="gallery-item">
-    <img loading="lazy" src="images/gallery-2.jpg" alt="The Morgan Richards team — Richard and the mechanics outside the garage" />
-    <div class="gallery-item-label">Richard and the team</div>
-  </div>
-  <div class="gallery-item">
-    <img loading="lazy" src="images/gallery-3.jpg" alt="Morgan Richards Garage forecourt showing Nexdrive EV Specialist Centre signage" />
-    <div class="gallery-item-label">Nexdrive EV Specialist Centre</div>
-  </div>
 </div>
+
+<!-- HOW IT WORKS -->
+<section class="process" id="how-it-works">
+  <div class="process-inner">
+    <div class="section-eyebrow" style="color:var(--chrome);">How it works</div>
+    <h2 class="section-heading" style="color:var(--white);">No surprises, from the first call to the invoice</h2>
+    <div class="process-grid">
+      <div class="process-step reveal" data-delay="1">
+        <div class="process-num">STEP 01</div>
+        <h3>You get in touch</h3>
+        <p>Call us or send an enquiry. Tell us what the car is doing and we'll give you a realistic time estimate when you book in.</p>
+      </div>
+      <div class="process-step reveal" data-delay="2">
+        <div class="process-num">STEP 02</div>
+        <h3>We find the actual cause</h3>
+        <p>Richard explains what we've found in plain English — no jargon. Where we can, we show you the worn part itself.</p>
+      </div>
+      <div class="process-step reveal" data-delay="3">
+        <div class="process-num">STEP 03</div>
+        <h3>You decide</h3>
+        <p>We never start work we haven't agreed with you first. If we find something extra, we call you with a clear price before we proceed.</p>
+      </div>
+      <div class="process-step reveal" data-delay="4">
+        <div class="process-num">STEP 04</div>
+        <h3>You pay when it's done</h3>
+        <p>Not before, and no deposit on standard work. Cash, card, BACS, Apple Pay or Google Pay.</p>
+      </div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--chrome);margin-top:1.2rem;">Calls are recorded for quality and compliance.</p>
+  </div>
+</section>
 
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
@@ -1282,12 +1457,12 @@ footer {
       <div>
         <div class="section-eyebrow">Customer reviews</div>
         <h2 class="section-heading">What SE London drivers say</h2>
-        <p class="section-sub">193 reviews on Google &nbsp;·&nbsp; 1,500 on Regit &nbsp;·&nbsp; 4.9 on Yell. Every review responded to personally by Richard.</p>
+        <p class="section-sub">4.8 across 193 Google reviews &nbsp;·&nbsp; 4.9 on Yell &nbsp;·&nbsp; 4.4 across 1,500+ Regit reviews. Every review responded to personally by Richard.</p>
       </div>
       <div class="rating-block">
         <div class="rating-num">4.8</div>
-        <span class="rating-stars">★★★★★</span>
-        <div class="rating-label">Google &nbsp;·&nbsp; Regit &nbsp;·&nbsp; Yell</div>
+        <span class="rating-stars" role="img" aria-label="4.8 out of 5 stars">★★★★★</span>
+        <div class="rating-label">Google &nbsp;·&nbsp; 193 reviews</div>
       </div>
     </div>
     <div class="reviews-grid">
@@ -1331,38 +1506,28 @@ footer {
     <div class="about-prose reveal-left">
       <div class="section-eyebrow">About us</div>
       <h2>An honest garage run by the same family for thirty years</h2>
-      <p style="font-size:0.97rem;color:var(--text-muted);line-height:1.75;font-weight:300;margin-bottom:1.8rem;">Founded in Woolwich in 1994, based in Charlton SE7 for fifteen years. Richard and the team do the job properly, explain it clearly, and only charge for what the car actually needs. Every Google review answered personally.</p>
+      <p style="font-size:0.97rem;color:var(--text-muted);line-height:1.75;font-weight:400;margin-bottom:1.8rem;">Founded in Woolwich in 1994, based in Charlton SE7 for fifteen years. Richard and the team do the job properly, explain it clearly, and only charge for what the car actually needs. Every Google review answered personally.</p>
 
       <!-- Credential badges -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.8rem;">
         <div style="padding:0.85rem 1rem;border:1px solid var(--hairline);background:var(--paper);">
           <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);margin-bottom:0.2rem;">AutoCare</div>
-          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:300;">Registered member</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">Registered member</div>
         </div>
         <div style="padding:0.85rem 1rem;border:1px solid var(--hairline);background:var(--paper);">
           <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);margin-bottom:0.2rem;">RMI</div>
-          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:300;">Part guarantees</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">Part guarantees</div>
         </div>
         <div style="padding:0.85rem 1rem;border:1px solid var(--hairline);background:var(--paper);">
           <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);margin-bottom:0.2rem;">IMI Certified</div>
-          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:300;">EV &amp; hybrid</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">EV &amp; hybrid</div>
         </div>
         <div style="padding:0.85rem 1rem;border:1px solid var(--hairline);background:var(--paper);">
           <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);margin-bottom:0.2rem;">Nexdrive</div>
-          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:300;">Approved centre</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">Approved centre</div>
         </div>
       </div>
 
-      <!-- What to expect -->
-      <div style="padding:1.2rem 1.4rem;background:var(--graphite);border-left:3px solid var(--steel);">
-        <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--chrome);margin-bottom:0.75rem;">What to expect</div>
-        <div style="display:flex;flex-direction:column;gap:0.55rem;">
-          <div style="font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;">✓&nbsp; We call before starting any extra work</div>
-          <div style="font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;">✓&nbsp; You see worn parts before we charge</div>
-          <div style="font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;">✓&nbsp; Calls recorded for quality &amp; compliance</div>
-          <div style="font-size:0.83rem;color:rgba(255,255,255,0.65);font-weight:300;">✓&nbsp; You pay only when the job is done</div>
-        </div>
-      </div>
     </div>
     <div class="about-sidebar reveal-right">
       <h3>Opening hours &amp; details</h3>
@@ -1380,11 +1545,11 @@ footer {
       </div>
       <div class="sidebar-row">
         <span class="sidebar-label">Phone</span>
-        <span class="sidebar-value"><a href="tel:02088542550" style="color:var(--steel);text-decoration:none">020 8854 2550</a></span>
+        <span class="sidebar-value"><a href="tel:02088542550" style="color:var(--steel);text-decoration:none;display:inline-block;padding:0.3rem 0">020 8854 2550</a></span>
       </div>
       <div class="sidebar-row">
         <span class="sidebar-label">Alternative</span>
-        <span class="sidebar-value"><a href="tel:02088545791" style="color:var(--steel);text-decoration:none">020 8854 5791</a></span>
+        <span class="sidebar-value"><a href="tel:02088545791" style="color:var(--steel);text-decoration:none;display:inline-block;padding:0.3rem 0">020 8854 5791</a></span>
       </div>
       <div class="sidebar-row">
         <span class="sidebar-label">Payment</span>
@@ -1441,7 +1606,7 @@ footer {
   <div class="enquiry-inner">
     <div class="enquiry-intro">
       <div class="section-eyebrow">Get in touch</div>
-      <h2 class="section-heading">Make a booking request or ask a question</h2>
+      <h2 class="section-heading">Tell us what's wrong — we'll come back within one working day</h2>
       <p>Fill in the form and we will get back to you within one working day. Prefer to call? We answer the phone during opening hours.</p>
       <p class="contact-line"><a href="tel:02088542550">020 8854 2550</a></p>
       <p class="contact-line"><a href="tel:02088545791">020 8854 5791</a></p>
@@ -1451,9 +1616,19 @@ footer {
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9936.463729118577!2d0.031684!3d51.49274!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a8ecced390cd%3A0xbfc403bd3a15c1b7!2sMorgan%20Richards%20Garage!5e0!3m2!1sen!2suk!4v1782154580141!5m2!1sen!2suk"
           width="100%" height="220" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           title="Morgan Richards Garage location map"></iframe>
+        <a class="directions-link" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/dir/?api=1&amp;destination=Morgan+Richards+Garage%2C+Unit+12+Anchorage+Point%2C+Anchor+%26+Hope+Lane%2C+Charlton%2C+London+SE7+7SQ">Get directions &rarr;</a>
       </div>
     </div>
     <form id="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
+      <!-- ============================================================
+           BLOCKER — MUST BE REPLACED BEFORE GO-LIVE
+           While this reads REPLACE_WITH_WEB3FORMS_KEY the Web3Forms API
+           rejects every submission, so no enquiry reaches the garage.
+           Get the key free at https://web3forms.com by entering the
+           destination address (morganrichardsgarage@yahoo.co.uk), then
+           paste it into the value below and send a live test.
+           ============================================================ -->
       <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
       <input type="hidden" name="subject" value="New enquiry — Morgan Richards Garage">
       <input type="hidden" name="to" value="morganrichardsgarage@yahoo.co.uk">
@@ -1475,6 +1650,12 @@ footer {
       </div>
       <div class="form-row">
         <div>
+          <label for="reg">Vehicle registration</label>
+          <input type="text" id="reg" name="vehicle_registration" placeholder="e.g. AB12 CDE"
+                 autocomplete="off" autocapitalize="characters" spellcheck="false"
+                 style="text-transform:uppercase;letter-spacing:0.08em;">
+        </div>
+        <div>
           <label for="service">Service required</label>
           <select id="service" name="service">
             <option value="">Select a service</option>
@@ -1490,23 +1671,56 @@ footer {
             <option>Other / not sure</option>
           </select>
         </div>
-        <div>
-          <label for="date">Preferred date (optional)</label>
-          <input type="date" id="date" name="preferred_date">
-        </div>
+      </div>
+      <div>
+        <label for="date">Preferred day (optional)</label>
+        <input type="text" id="date" name="preferred_date" placeholder="e.g. Tuesday morning, or as soon as possible">
       </div>
       <div>
         <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="Tell us about your vehicle and what you need — make, model, year, and any symptoms you've noticed."></textarea>
       </div>
       <button type="submit" class="form-submit">Send enquiry<span class="form-spinner"></span></button>
+      <p class="form-consent">By sending this enquiry you agree that we may use the details above to contact you about it. See our <a href="#privacy">privacy notice</a>.</p>
       <div class="form-error-msg" id="form-error"></div>
-      <p style="margin-top:1rem;font-size:0.82rem;color:var(--text-muted);">Prefer to call? <a href="tel:02088542550" style="color:var(--steel);font-weight:500;text-decoration:none;">020 8854 2550</a> &nbsp;·&nbsp; Mon–Fri 8am–6pm, Sat 9am–1pm</p>
+      <p style="margin-top:1rem;font-size:0.88rem;color:var(--text-muted);">Prefer to call? <a href="tel:02088542550" style="color:var(--steel);font-weight:500;text-decoration:none;">020 8854 2550</a> &nbsp;·&nbsp; Mon–Fri 8am–6pm, Sat 9am–1pm</p>
     </form>
     <div class="form-success" id="form-success">
       <strong>Booking request received — thank you.</strong><br>
       We'll be in touch within one working day to confirm. If you need to speak to us sooner, call <a href="tel:02088542550" style="color:var(--steel);font-weight:500;text-decoration:none;">020 8854 2550</a>.
     </div>
+  </div>
+</section>
+
+<!-- PRIVACY NOTICE -->
+<!--
+  NOTE FOR CLIENT SIGN-OFF: this notice describes only what the website
+  technically does today. Before go-live the client should confirm and add:
+    · how long enquiry emails are retained
+    · their ICO registration number, if they are registered
+    · whether enquiry details are copied into any garage management software
+  Nothing above has been assumed or invented here.
+-->
+<section class="privacy" id="privacy">
+  <div class="privacy-inner">
+    <div class="section-eyebrow">Privacy</div>
+    <h2>How we handle your details</h2>
+    <p>Morgan Richards Garage Ltd (company no. 07146809, Unit 12 Anchorage Point, Anchor &amp; Hope Lane, Charlton, London SE7 7SQ) is the data controller for information you send through this website.</p>
+
+    <h3>What we collect</h3>
+    <p>Only what you type into the enquiry form: your name, phone number, and — if you choose to give them — your email address, vehicle registration, preferred day, and the message describing what you need.</p>
+
+    <h3>Why we collect it</h3>
+    <p>Solely to respond to your enquiry and, if you go ahead, to arrange the work. We do not use it for marketing, and we do not sell or share it with third parties for their own purposes.</p>
+
+    <h3>How it reaches us</h3>
+    <p>The form is delivered to our email inbox by Web3Forms, a form-delivery service acting on our behalf. Your submission passes through their systems in transit.</p>
+
+    <h3>Other services on this page</h3>
+    <p>This page embeds a Google Map so you can find us. Google may set cookies and receive your IP address when that map loads. We do not use analytics or advertising trackers on this site.</p>
+
+    <h3>Your rights</h3>
+    <p>You can ask us what we hold about you, ask us to correct it, or ask us to delete it. Call <a href="tel:02088542550">020 8854 2550</a> or email <a href="mailto:morganrichardsgarage@yahoo.co.uk">morganrichardsgarage@yahoo.co.uk</a>. If you are unhappy with how we have handled your information you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
   </div>
 </section>
 
@@ -1544,7 +1758,7 @@ footer {
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Morgan Richards Garage Ltd &nbsp;·&nbsp; Company No. 07146809 &nbsp;·&nbsp; Registered in England &amp; Wales</span>
+      <span>© 2026 Morgan Richards Garage Ltd &nbsp;·&nbsp; Company No. 07146809 &nbsp;·&nbsp; Registered in England &amp; Wales &nbsp;·&nbsp; <a href="#privacy">Privacy</a></span>
       <span>Website by <a href="https://spurwise.co.uk" target="_blank" rel="noopener">Spurwise</a></span>
     </div>
   </div>
@@ -1556,6 +1770,10 @@ footer {
   <a href="tel:02088542550">Call now: 020 8854 2550</a>
 </div>
 
+<noscript>
+  <style>.reveal,.reveal-left,.reveal-right{opacity:1!important;transform:none!important}</style>
+</noscript>
+
 <script>
   // Nav scroll
   const header = document.getElementById('site-header');
@@ -1566,20 +1784,86 @@ footer {
   // Mobile menu
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
+  const setMenu = open => {
+    mobileMenu.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  hamburger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+
+  // Close mobile menu on link click, or on Escape
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => setMenu(false));
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      setMenu(false);
+      hamburger.focus();
+    }
   });
 
-  // Close mobile menu on link click
-  mobileMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  });
+  // ── OPEN / CLOSED NOW ──
+  // Hours come straight from the opening times published on this page.
+  (() => {
+    const el = document.getElementById('open-now');
+    const label = document.getElementById('open-now-text');
+    if (!el) return;
+    // 0 = Sunday … 6 = Saturday. [openMinute, closeMinute] or null when closed.
+    const HOURS = {
+      0: null,
+      1: [480, 1080], 2: [480, 1080], 3: [480, 1080], 4: [480, 1080], 5: [480, 1080],
+      6: [540, 780]
+    };
+    const NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const fmt = m => {
+      const h = Math.floor(m / 60), mm = m % 60;
+      const suffix = h < 12 ? 'am' : 'pm';
+      const h12 = h % 12 === 0 ? 12 : h % 12;
+      return mm ? `${h12}.${String(mm).padStart(2,'0')}${suffix}` : `${h12}${suffix}`;
+    };
+    // Read the clock in London regardless of the visitor's own timezone.
+    const parts = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/London', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
+    }).formatToParts(new Date());
+    const get = t => parts.find(p => p.type === t).value;
+    const day = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(get('weekday'));
+    const now = parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10);
+
+    const today = HOURS[day];
+    if (today && now >= today[0] && now < today[1]) {
+      label.textContent = `Open now · until ${fmt(today[1])}`;
+    } else {
+      let d = day, added = 0;
+      // find the next day we're open, and whether today's slot is still ahead
+      if (today && now < today[0]) {
+        label.textContent = `Closed · opens ${fmt(today[0])} today`;
+      } else {
+        do { d = (d + 1) % 7; added++; } while (!HOURS[d] && added < 7);
+        const when = added === 1 ? 'tomorrow' : NAMES[d];
+        label.textContent = `Closed · opens ${fmt(HOURS[d][0])} ${when}`;
+      }
+      el.classList.add('shut');
+    }
+    el.classList.add('ready');
+  })();
 
   // ── SCROLL REVEAL ──
-  const ro = new IntersectionObserver(entries => entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
-  }), { threshold: .12, rootMargin: '0px 0px -48px 0px' });
-  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => ro.observe(el));
+  // Everything starts at opacity:0, so any failure here must fall back to visible.
+  const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  const revealAll = () => revealEls.forEach(el => el.classList.add('visible'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealAll();
+  } else {
+    try {
+      const ro = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+      }), { threshold: .12, rootMargin: '0px 0px -48px 0px' });
+      revealEls.forEach(el => ro.observe(el));
+    } catch (err) {
+      revealAll();
+    }
+  }
 
   // ── FAQ ACCORDION ──
   document.querySelectorAll('.faq-item').forEach(item => {
@@ -1602,6 +1886,10 @@ footer {
   // ── AJAX FORM ──
   const enquiryForm = document.getElementById('enquiry-form');
   if (enquiryForm) {
+    if (enquiryForm.access_key.value === 'REPLACE_WITH_WEB3FORMS_KEY') {
+      console.warn('[Morgan Richards] Web3Forms access key is still the placeholder — ' +
+                   'the enquiry form cannot deliver until it is replaced.');
+    }
     enquiryForm.addEventListener('submit', async e => {
       e.preventDefault();
       const btn = enquiryForm.querySelector('.form-submit');
@@ -1622,7 +1910,20 @@ footer {
           throw new Error(data.message || 'Submission failed');
         }
       } catch (err) {
-        errorEl.textContent = 'Something went wrong — please try again or call us on 020 8854 2550.';
+        // A failed send must still give the visitor a way through.
+        const body = encodeURIComponent(
+          'Name: ' + (enquiryForm.name.value || '') +
+          '\nPhone: ' + (enquiryForm.phone.value || '') +
+          '\nVehicle registration: ' + (enquiryForm.vehicle_registration.value || '') +
+          '\nService required: ' + (enquiryForm.service.value || '') +
+          '\nPreferred day: ' + (enquiryForm.preferred_date.value || '') +
+          '\n\n' + (enquiryForm.message.value || '')
+        );
+        errorEl.innerHTML =
+          'Sorry — that didn\'t send. Please call us on ' +
+          '<a href="tel:02088542550">020 8854 2550</a> or ' +
+          '<a href="mailto:morganrichardsgarage@yahoo.co.uk?subject=Website%20enquiry&amp;body=' + body + '">' +
+          'email us instead</a> — your details are already filled in.';
         errorEl.style.display = 'block';
       } finally {
         btn.classList.remove('loading');
