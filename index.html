@@ -1609,18 +1609,7 @@ footer {
            href="https://www.google.com/maps/dir/?api=1&amp;destination=Morgan+Richards+Garage%2C+Unit+12+Anchorage+Point%2C+Anchor+%26+Hope+Lane%2C+Charlton%2C+London+SE7+7SQ">Get directions &rarr;</a>
       </div>
     </div>
-    <form id="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
-      <!-- ============================================================
-           BLOCKER — MUST BE REPLACED BEFORE GO-LIVE
-           While this reads REPLACE_WITH_WEB3FORMS_KEY the Web3Forms API
-           rejects every submission, so no enquiry reaches the garage.
-           Get the key free at https://web3forms.com by entering the
-           destination address (morganrichardsgarage@yahoo.co.uk), then
-           paste it into the value below and send a live test.
-           ============================================================ -->
-      <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
-      <input type="hidden" name="subject" value="New enquiry — Morgan Richards Garage">
-      <input type="hidden" name="to" value="morganrichardsgarage@yahoo.co.uk">
+    <form id="enquiry-form">
       <input type="hidden" name="botcheck" class="hidden" style="display:none;">
       <!-- Spam honeypot --><p style="display:none"><input name="website" tabindex="-1" autocomplete="off"></p>
       <div class="form-row">
@@ -1841,12 +1830,12 @@ footer {
   });
 
   // ── AJAX FORM ──
+  // Sends via Spurwise's own public-website-enquiry function (Resend-backed)
+  // rather than a third-party relay — see that function's header for why.
+  const ENQUIRY_ENDPOINT = 'https://ititwfbyhzginoayqggs.supabase.co/functions/v1/public-website-enquiry';
+  const ENQUIRY_BUSINESS_ID = 'e22dbe41-a8a9-40f4-b641-0be3f68b3f97'; // Morgan Richards Garage
   const enquiryForm = document.getElementById('enquiry-form');
   if (enquiryForm) {
-    if (enquiryForm.access_key.value === 'REPLACE_WITH_WEB3FORMS_KEY') {
-      console.warn('[Morgan Richards] Web3Forms access key is still the placeholder — ' +
-                   'the enquiry form cannot deliver until it is replaced.');
-    }
     enquiryForm.addEventListener('submit', async e => {
       e.preventDefault();
       const btn = enquiryForm.querySelector('.form-submit');
@@ -1855,16 +1844,19 @@ footer {
       btn.classList.add('loading');
       errorEl.style.display = 'none';
       try {
-        const res = await fetch('https://api.web3forms.com/submit', {
+        const payload = Object.fromEntries(new FormData(enquiryForm).entries());
+        payload.business_id = ENQUIRY_BUSINESS_ID;
+        const res = await fetch(ENQUIRY_ENDPOINT, {
           method: 'POST',
-          body: new FormData(enquiryForm)
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
         });
         const data = await res.json();
-        if (data.success) {
+        if (data.ok) {
           enquiryForm.style.display = 'none';
           successEl.style.display = 'block';
         } else {
-          throw new Error(data.message || 'Submission failed');
+          throw new Error(data.reason || 'Submission failed');
         }
       } catch (err) {
         // A failed send must still give the visitor a way through.
