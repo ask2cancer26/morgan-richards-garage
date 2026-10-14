@@ -1880,5 +1880,19 @@ footer {
     });
   }
 </script>
+
+<!--
+  Spurwise website chat pilot (60-day trial — see
+  docs/WEBSITE-CHAT-PILOT-DEPLOYMENT.md in spurwise-ai-reception).
+  REPLACE THE src HOST before go-live: this is a placeholder until the
+  Cloudflare Worker is actually deployed and its real URL (either the
+  default *.workers.dev address or a custom route) is known. The widget
+  reads its own API base from this script tag's src, so updating this one
+  line is the only change needed once the real URL exists.
+-->
+<script src="https://REPLACE-WITH-WORKER-URL.workers.dev/widget.js"
+        data-business-id="e22dbe41-a8a9-40f4-b641-0be3f68b3f97"
+        data-privacy-url="privacy.html"
+        defer></script>
 </body>
 </html>
